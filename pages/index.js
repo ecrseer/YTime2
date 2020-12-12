@@ -1,10 +1,19 @@
 import Head from 'next/head'
+import { useState } from 'react'
 
-export default () => (
+export default () =>{ 
+    const [waitd,setWaitd] = useState(true);
+    return(
   <>
     <Head>
-      <title>next-pwa example</title>
+      <title>Time Shared YT</title>
     </Head>
-    <h1>Next.js + PWA = AWESOME!</h1>
+    <h1>Next.js+ PWA = AWESOME!</h1>
+    <button onClick={()=>setWaitd(!waitd)}>botaozdd</button>
+    <div className="waiter">
+    
+    
+    </div>
   </>
 )
+}

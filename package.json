@@ -1,16 +1,17 @@
 {
-  "name": "next-pwa-example",
+  "name": "timeshareyt",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev":"next dev",
+    "dev": "next dev",
     "olddev": "node ./index.js",
     "build": "next build",
     "start": "cross-env NODE_ENV=production node ./index.js"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
     "cross-env": "^7.0.2",
     "fastify": "^3.8.0",
     "fastify-compress": "^3.4.0",

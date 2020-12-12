@@ -35,7 +35,11 @@ export default class extends Document {
               margin: 0 auto;
             }
             h1 {
-              text-align: center;
+              text-align: center;              
+            }
+            .waiter{
+                border: 1px dashed black;
+                margin: 10px auto;
             }
             `
           }</style>
