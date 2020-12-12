@@ -4,6 +4,9 @@ import LaunchScreen from '../components/launch/launchScreen'
 import Sbutton from '../components/textMaterial/Sbutton';
 import TextField from '../components/textMaterial/TextField'
 
+
+
+
 const normalFt = (<a
     href="https://github.com/ecrseer"
     target="_blank"
@@ -19,6 +22,10 @@ export default function yshindex(){
     const [urlModif,setUrlModif] = useState('');
     const [Footinho,setFootinho] = useState(normalFt);
     const [Falli,setFalli] = useState(()=>{})
+    
+    const [ShrButton,setShrButton] = useState(<Sbutton 
+        txt="Copiar" />)
+    const [mylog,setMyLog] = useState('--no logs--');
 
     function copyBoard (result){
   
@@ -76,11 +83,29 @@ export default function yshindex(){
             console.log(e);
         })
     }
+    async function usarBotaoAdequado(){
+        await navigator.share? 
+        setShrButton(<Sbutton txt="Compartilhar" />) :
+            setShrButton(<Sbutton 
+                txt="Copia" />)
+    }
 
-
+    async function compartilhar(){
+        const shareData = {
+            title: 'MDN',
+            text: 'Aprenda desenvolvimento web no MDN!',
+            url: 'https://developer.mozilla.org',
+          }
+        try {
+            await navigator.share(shareData);
+        } catch (error) {
+            setMyLog('errofoi: '+error)
+        }
+    }
     useEffect(()=>{
         setWaitd(false);
         PedirPermissaoPraCopiar();
+        usarBotaoAdequado();
     },[urlvideo,tempo])
     return(
   <>
@@ -112,7 +137,11 @@ export default function yshindex(){
                 onBlur={adicionaTempo}        
             />
             </div>
-            <Sbutton/>
+            {ShrButton}
+            <Sbutton txt="Compartilhar"  onShr={compartilhar}/>
+            </div>
+            <div>
+            {mylog}
             </div>
     
     

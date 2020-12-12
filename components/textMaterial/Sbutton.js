@@ -9,14 +9,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Sbutton() {
+export default function Sbutton({txt,onShr}) {
     const classes = useStyles();
   
     return (
       <div className={classes.root}>
         
-        <Button variant="contained" color="primary">
-          Compartilhar
+        <Button variant="contained" color="primary" onClick={onShr}>
+          {txt}
         </Button>
       </div>
     );
