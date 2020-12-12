@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import LaunchScreen from '../components/launch/launchScreen'
+import Sbutton from '../components/textMaterial/Sbutton';
+import TextField from '../components/textMaterial/TextField'
 
 const normalFt = (<a
     href="https://github.com/ecrseer"
@@ -36,18 +38,29 @@ export default function yshindex(){
         if(urlvideo.search("youtube")!==-1){//se encontrou youtube 
           url=urlvideo+'&feature=youtu.be&t='+tmp;
           setUrlModif(url);
-          openLink(url);}
+      //badbehaviour    openLink(url);
+    }
           else 
           if(urlvideo.search("youtu.be")!==-1){
     //        alert("//se encontrou youtu.be");
             url=urlvideo+'?t='+tmp;
             setUrlModif(url);
-            openLink(url);
+           //badbehaviour openLink(url);
           }
             else
               setFootinho(<h2>Digite uma url do youtube</h2>)
     
       }
+//remove later
+      function falbck(){
+        return(
+          <TextField
+                id="standard-basic" name="min"
+                label="URL" onChange={({target:{value}})=>
+                setUrlvideo(value)}  />
+        )
+      }
+
     function PedirPermissaoPraCopiar(){
     window.addEventListener("error", function (e) {
         alert("Error occurred: " + e.error.message);
@@ -68,7 +81,7 @@ export default function yshindex(){
     useEffect(()=>{
         setWaitd(false);
         PedirPermissaoPraCopiar();
-    },[])
+    },[urlvideo,tempo])
     return(
   <>
     <Head>
@@ -80,10 +93,27 @@ export default function yshindex(){
 
 
 
-    
+
     <button onClick={()=>setWaitd(!waitd)}>botaozdd</button>
+    <h3>urlmodif:           {urlModif}</h3>
     <h2>es{urlvideo}</h2>
-    <h1>tjs+ PA = AWESOME!</h1>
+    <h1>ts+ PA = a!</h1>
+    <div>
+        <div><TextField
+            id="standard-basic" name="min"
+            label="Minutos" onChange={({target:{value}})=>setTempo({
+              segundo:tempo.segundo, minuto:value*60
+            })}  />
+    <TextField
+              id="standard-basic"
+              label="Segundos" name="seg"                         
+              onChange={({target:{value}})=> setTempo(
+                {segundo:value,minuto:tempo.minuto}) }  
+                onBlur={adicionaTempo}        
+            />
+            </div>
+            <Sbutton/>
+            </div>
     
     
   </>
