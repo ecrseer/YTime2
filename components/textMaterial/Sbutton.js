@@ -4,20 +4,30 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
-      margin: theme.spacing(1),
+      margin: theme.spacing(2),
     },
   },
 }));
-
-export default function Sbutton({txt,onShr}) {
+async function temBotaoCompartilhar(){
+    let hasShareApi = await navigator.share;
+    if(hasShareApi)
+     return true;
+     else
+     return false;
+}
+export default function Sbutton({txt,urlModif}) {
     const classes = useStyles();
   
     return (
       <div className={classes.root}>
-        
-        <Button variant="contained" color="primary" onClick={onShr}>
-          {txt}
+        {temBotaoCompartilhar ?
+        <Button variant="contained" color="primary" >
+          Compartilhar
+        </Button>:
+        <Button variant="contained" color="primary" >
+          Copiar
         </Button>
+        }
       </div>
     );
   }

@@ -122,7 +122,7 @@ export default function yshindex(){
     <button onClick={()=>setWaitd(!waitd)}>botaozdd</button>
     <h3>urlmodif:           {urlModif}</h3>
     <h2>es{urlvideo}</h2>
-    <h1>ts+ PA = a!</h1>
+    <h1>look at button</h1>
     <div>
         <div><TextField
             id="standard-basic" name="min"
@@ -137,12 +137,10 @@ export default function yshindex(){
                 onBlur={adicionaTempo}        
             />
             </div>
-            {ShrButton}
-            <Sbutton txt="Compartilhar"  onShr={compartilhar}/>
+            <Sbutton urlModif={urlModif}/>
+            
             </div>
-            <div>
-            {mylog}
-            </div>
+            
     
     
   </>
