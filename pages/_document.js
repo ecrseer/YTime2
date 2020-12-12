@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-const APP_NAME = 'next-pwa example'
-const APP_DESCRIPTION = 'This is an example of using next-pwa plugin'
+const APP_NAME = 'YTimeShared2'
+const APP_DESCRIPTION = 'Share your youtube links right on schedule'
 
 export default class extends Document {
   static async getInitialProps(ctx) {
