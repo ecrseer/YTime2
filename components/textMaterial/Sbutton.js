@@ -23,11 +23,13 @@ export default function Sbutton({urlModif}) {
     const [mylog,setMyLog] = useState('--no logs--');
     async function compartilhar(urlMod){
         const shareData = {
-            title: ''+urlMod,
-            text: ''+urlMod,
-            url: ''+urlMod,
+            title: ''+urlMod+'',
+            text: ''+urlMod+'',
+            url: ''+urlMod+'',
           }
         try {
+            setMyLog("shrDT text: "+shareData.text+"\n"
+            +"shrDT url: "+shareData.url);
             await navigator.share(shareData);
         } catch (error) {
             console.log('errofoi: '+error)
