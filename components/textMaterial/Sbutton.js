@@ -38,7 +38,7 @@ export default function Sbutton({urlModif}) {
     const usarBotaoCorreto = (nav) =>{    
         if(nav.share)
          setBtn(<Button variant="contained" color="primary"
-         onClick={()=>compartilhar(urlModif)} >
+         onClick={()=>{compartilhar(urlModif)}} >
          Compartilhar
      </Button>)
          else
