@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -8,26 +9,22 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-async function temBotaoCompartilhar(){
-    let hasShareApi = await navigator.share;
-    if(hasShareApi)
-     return true;
+const temBotaoCompartilhar= ()=>{    
+    if(navigator.share)
+     return (<Button variant="contained" color="primary" >
+          Compartilhar
+   </Button>)
      else
-     return false;
+        return (<Button variant="contained" color="primary" >
+        Copiar
+    </Button>)
 }
 export default function Sbutton({txt,urlModif}) {
     const classes = useStyles();
-  
+//  useEffect(()=>temBotaoCompartilhar(),[])
     return (
       <div className={classes.root}>
-        {temBotaoCompartilhar ?
-        <Button variant="contained" color="primary" >
-          Compartilhar
-        </Button>:
-        <Button variant="contained" color="primary" >
-          Copiar
-        </Button>
-        }
+        {temBotaoCompartilhar()}
       </div>
     );
   }
