@@ -75,10 +75,18 @@ function fns(uuu){
         <br/>
         <Button onClick={()=>{fns(urlModif)}}>alerta</Button>
         <br/>
-        <div><Button variant="contained" color="primary"
+        <div>
+        {typeof navigator.share === "undefined"?
+            <Button variant="contained" color="primary"
+         onClick={()=>{copiar(urlModif)}} >
+            Copiar
+        </Button>
+        :
+            <Button variant="contained" color="primary"
          onClick={()=>{compartilhar(urlModif)}} >
          Compartilhar2
-     </Button></div>
+     </Button>
+     }</div>
       </div>
     );
   }
