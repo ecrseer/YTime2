@@ -15,18 +15,18 @@ export default function Sbutton({txt,urlModif}) {
     const classes = useStyles();
     const [btn,setBtn] = useState(<LaunchScreen/>)
 
-    const temBotaoCompartilhar= ()=>{    
-        if(1+3==4)
+    const usarBotaoCorreto = (nav) =>{    
+        if(nav.share)
          setBtn(<h1>may</h1>)
          else
-            return (<Button variant="contained" color="primary" >
+         setBtn(<Button variant="contained" color="primary" >
             Copiar
         </Button>)
     }
 
 
 
-  useEffect(()=>temBotaoCompartilhar(),[])
+  useEffect(()=>usarBotaoCorreto(navigator),[])
     return (
       <div className={classes.root}>
         {btn}
