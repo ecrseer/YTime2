@@ -68,8 +68,8 @@ export default function yshindex(){
         )
       }
 
-    function PedirPermissaoPraCopiar(){
-    window.addEventListener("error", function (e) {
+    function PedirPermissaoPraCopiar(_window){
+        _window.addEventListener("error", function (e) {
         alert("Error occurred: " + e.error.message);
         return false;
      })
@@ -88,7 +88,7 @@ export default function yshindex(){
     
     useEffect(()=>{
         setWaitd(false);
-        PedirPermissaoPraCopiar();
+        PedirPermissaoPraCopiar(window);
     },[urlvideo,tempo])
     return(
   <>
@@ -105,10 +105,10 @@ export default function yshindex(){
     <button onClick={()=>setWaitd(!waitd)}>botaozdd</button>
     <h3>urlmodif:           {urlModif}</h3>
     <h2>es{urlvideo}</h2>
-    <h1>look at button</h1>
+    <h1>look at </h1>
     <div>
         <div>
-        <TimeFields/>
+        {/* <TimeFields/> */}
         <TextField
             id="standard-basic" name="min"
             label="Minutos" onChange={({target:{value}})=>setTempo({
