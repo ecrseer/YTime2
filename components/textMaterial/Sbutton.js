@@ -34,8 +34,9 @@ export default function Sbutton({urlModif}) {
             setMyLog('errofoi: '+error)
         }
     }
-    function normalTest(){
-
+    function NormalTest(){
+        let myurlModif = urlModif+'2';
+        return(<h1>myis: {myurlModif}</h1>)
     }
     const usarBotaoCorreto = (nav) =>{    
         if(nav.share)
@@ -64,6 +65,7 @@ export default function Sbutton({urlModif}) {
         urlModif:{urlModif}
         <br/>
         ModiURL: {modiURL}
+        <NormalTest/>
       </div>
     );
   }
