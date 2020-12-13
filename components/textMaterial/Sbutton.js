@@ -22,14 +22,16 @@ export default function Sbutton({urlModif}) {
     const [btn,setBtn] = useState(<LaunchScreen/>)
     const [mylog,setMyLog] = useState('--no logs--');
     const [modiURL,setModiURL] = useState(urlModif);
-    async function compartilhar(urlModi){
+    let modURL = ()=>{return urlModif+""};
+     function compartilhar(urlModi){
         let urlMod = ""+urlModi+"";
         const shareData = {            
+            title:''+modURL,
             text: 'testo'+urlModif,
           }
         try {
-            setMyLog("modiURL text: "+modiURL);
-            await navigator.share(shareData);
+            setMyLog("modiURL text: "+modURL);
+             navigator.share(shareData).then(()=>{}).catch(er=>new er);
         } catch (error) {
             setMyLog('errofoi: '+error)
         }
