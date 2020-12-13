@@ -54,6 +54,8 @@ export default function Sbutton({urlModif}) {
     return (
       <div className={classes.root}>
         {btn}
+        <br/>
+        logs: {mylog}
       </div>
     );
   }
