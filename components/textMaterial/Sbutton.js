@@ -24,13 +24,13 @@ export default function Sbutton({urlModif}) {
     const [modiURL,setModiURL] = useState(urlModif);
     let modURL = ()=>{return urlModif+""};
      function compartilhar(urlModi){
-        let urlMod = ""+urlModi+"";
+        
         const shareData = {            
             title:''+modURL(),
-            text: 'testo'+urlModif,
+            text: 'parametro'+urlModi,
           }
         try {
-            setMyLog("modiURL text: "+modURL);
+            setMyLog("parametro modiURL text: "+urlModi);
              navigator.share(shareData).then(()=>{}).catch(er=>new er);
         } catch (error) {
             setMyLog('errofoi: '+error)
@@ -38,14 +38,14 @@ export default function Sbutton({urlModif}) {
     }
     function NormalTest(){
         let myurlModif = urlModif+'2';
-        return(<h1>myis: {myurlModif}</h1>)
+        return(<h1>{myurlModif}</h1>)
     }
     const usarBotaoCorreto = (nav) =>{    
         if(nav.share)
-         setBtn(<Button variant="contained" color="primary"
+         setBtn(<div><Button variant="contained" color="primary"
          onClick={()=>{compartilhar(urlModif)}} >
          Compartilhar
-     </Button>)
+     </Button></div>)
          else
          setBtn(<div><Button variant="contained" color="primary"
          onClick={()=>{copiar(urlModif)}} >
@@ -56,7 +56,11 @@ export default function Sbutton({urlModif}) {
     }
 
 
-
+function fns(uuu){
+    let el= (<h1>{urlModif}</h1>);
+        let txt = el.innerHTML;
+        alert(uuu);
+}
   useEffect(()=>usarBotaoCorreto(navigator),[])
     return (
       <div className={classes.root}>
@@ -68,6 +72,13 @@ export default function Sbutton({urlModif}) {
         <br/>
         ModiURL: {modiURL}
         <NormalTest/>
+        <br/>
+        <Button onClick={()=>{fns(urlModif)}}>alerta</Button>
+        <br/>
+        <div><Button variant="contained" color="primary"
+         onClick={()=>{compartilhar(urlModif)}} >
+         Compartilhar2
+     </Button></div>
       </div>
     );
   }
