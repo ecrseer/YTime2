@@ -43,7 +43,7 @@ export default function Sbutton({urlModif}) {
      </Button>)
          else
          setBtn(<div><Button variant="contained" color="primary"
-         onClick={()=>copiar(urlModif)} >
+         onClick={()=>{copiar(urlModif)}} >
             Copiar
         </Button>
         
@@ -58,6 +58,8 @@ export default function Sbutton({urlModif}) {
         {btn}
         <br/>
         logs: {mylog}
+        <br/>
+        urlModif:{urlModif}
       </div>
     );
   }
