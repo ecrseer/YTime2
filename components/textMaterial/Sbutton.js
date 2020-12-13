@@ -21,7 +21,7 @@ export default function Sbutton({urlModif}) {
     const classes = useStyles();
     const [btn,setBtn] = useState(<LaunchScreen/>)
     const [mylog,setMyLog] = useState('--no logs--');
-    const [modiURL,setModiURL] = useState(urlModif);
+    const [modiURL,setModiURL] = useState({urlModif});
     async function compartilhar(urlModi){
         let urlMod = ""+urlModi+"";
         const shareData = {            
@@ -33,6 +33,9 @@ export default function Sbutton({urlModif}) {
         } catch (error) {
             setMyLog('errofoi: '+error)
         }
+    }
+    function normalTest(){
+
     }
     const usarBotaoCorreto = (nav) =>{    
         if(nav.share)
