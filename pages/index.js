@@ -97,13 +97,13 @@ export default function yshindex(){
         <div>
         {/* <TimeFields/> */}
         <TextField
-            id="standard-basic" name="min"
+            id="standard-number" name="min" type="number"
             label="Minutos" onChange={({target:{value}})=>setTempo({
               segundo:tempo.segundo, minuto:value*60
             })}  />
     <TextField
-              id="standard-basic"
-              label="Segundos" name="seg"                         
+              id="standard-number" 
+              label="Segundos" name="seg" type="number"                         
               onChange={({target:{value}})=> setTempo(
                 {segundo:value,minuto:tempo.minuto}) }  
                 onBlur={adicionaTempo}        
@@ -111,8 +111,7 @@ export default function yshindex(){
             </div>
             <Sbutton urlModif={urlModif}/>
             
-            </div>
-            
+            </div>            
     
     
   </>

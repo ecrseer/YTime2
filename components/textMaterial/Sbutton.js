@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Sbutton({urlModif}) {
     const classes = useStyles();
 
-     function compartilhar(urlModi){        
+     async function compartilhar(urlModi){        
         const shareData = {           
             title:''+urlModi,
           }
@@ -42,6 +42,7 @@ export default function Sbutton({urlModif}) {
          onClick={()=>{compartilhar(urlModif)}} >
          Compartilhar
      </Button>
+     
      }
       </div>
     );
