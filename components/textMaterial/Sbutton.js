@@ -21,14 +21,14 @@ export default function Sbutton({urlModif}) {
     const classes = useStyles();
     const [btn,setBtn] = useState(<LaunchScreen/>)
     const [mylog,setMyLog] = useState('--no logs--');
+    const [modiURL,setModiURL] = useState(urlModif);
     async function compartilhar(urlModi){
         let urlMod = ""+urlModi+"";
-        const shareData = {
-            
-            text: 'testo'+urlMod,
+        const shareData = {            
+            text: 'testo'+modiURL,
           }
         try {
-            setMyLog("urlMod text: "+urlMod);
+            setMyLog("modiURL text: "+modiURL);
             await navigator.share(shareData);
         } catch (error) {
             setMyLog('errofoi: '+error)
@@ -59,6 +59,8 @@ export default function Sbutton({urlModif}) {
         logs: {mylog}
         <br/>
         urlModif:{urlModif}
+        <br/>
+        ModiURL: {modiURL}
       </div>
     );
   }
