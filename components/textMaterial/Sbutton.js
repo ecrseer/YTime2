@@ -3,11 +3,11 @@ import Button from '@material-ui/core/Button';
 import { useEffect, useState } from 'react';
 import LaunchScreen from '../launch/launchScreen';
 
-async function compartilhar(){
+async function compartilhar(urlMod){
     const shareData = {
-        title: 'MDN',
-        text: 'Aprenda desenvolvimento web no MDN!',
-        url: 'https://developer.mozilla.org',
+        title: 'ytvdeo',
+        text: 'youtube',
+        url: urlMod,
       }
     try {
         await navigator.share(shareData);
@@ -15,7 +15,10 @@ async function compartilhar(){
         console.log('errofoi: '+error)
     }
 }
-
+async function copiar(urlMod){
+    navigator.clipboard.writeText(''+urlMod).then(()=>{})
+    .catch(err=>console.log(err));
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,11 +35,12 @@ export default function Sbutton({urlModif}) {
     const usarBotaoCorreto = (nav) =>{    
         if(nav.share)
          setBtn(<Button variant="contained" color="primary"
-         onClick={compartilhar} >
+         onClick={()=>compartilhar(urlModif)} >
          Compartilhar
      </Button>)
          else
-         setBtn(<Button variant="contained" color="primary" >
+         setBtn(<Button variant="contained" color="primary"
+         onClick={()=>copiar(urlModif)} >
             Copiar
         </Button>)
     }
