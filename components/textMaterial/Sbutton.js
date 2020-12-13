@@ -18,19 +18,16 @@ const useStyles = makeStyles((theme) => ({
 export default function Sbutton({urlModif}) {
     const classes = useStyles();
 
-     function compartilhar(urlModi){
-        
-        const shareData = {            
+     function compartilhar(urlModi){        
+        const shareData = {           
             title:''+urlModi,
           }
-        try {
-            
+        try {            
              navigator.share(shareData).then(()=>{}).catch(er=>new er);
         } catch (error) {
                console.log('errofoi: '+error)
         }
-    }
-    
+    }  
   
     return (
       <div className={classes.root}>
@@ -43,7 +40,7 @@ export default function Sbutton({urlModif}) {
         :
             <Button variant="contained" color="primary"
          onClick={()=>{compartilhar(urlModif)}} >
-         Compartilhar2
+         Compartilhar
      </Button>
      }
       </div>
