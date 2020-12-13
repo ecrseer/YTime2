@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 const temBotaoCompartilhar= ()=>{    
     if(typeof navigator.share !== "undefined")
      return (<Button variant="contained" color="primary" >
-          Compartilhr
+          Compartilhar
    </Button>)
      else
         return (<Button variant="contained" color="primary" >
