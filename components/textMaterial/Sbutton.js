@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Sbutton({urlModif}) {
     const classes = useStyles();
-    const [myNav,setMyNav] = useState('');
+    const [myNav,setMyNav] = useState(false);
     useEffect(()=>{
         setMyNav(navigator.share)
     },[])
@@ -34,7 +34,7 @@ export default function Sbutton({urlModif}) {
     return (
       <div className={classes.root}>
              
-        {myNav !== ''?
+        {myNav ?
             <Button variant="contained" color="primary"
          onClick={()=>{copiar(urlModif)}} >
             Copiar
