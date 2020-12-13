@@ -2,3 +2,5 @@ node_modules
 .next
 README copy.md
 lighthouse.pdf
+public/*.map
+public/workbox*
