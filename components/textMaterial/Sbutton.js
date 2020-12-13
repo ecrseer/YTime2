@@ -24,9 +24,9 @@ export default function Sbutton({urlModif}) {
     async function compartilhar(urlModi){
         let urlMod = ""+urlModi+"";
         const shareData = {
-            title: ''+urlMod+'',
-            text: ''+urlMod+'',
-            url: ''+urlMod+'',
+            title: 'titulo',
+            text: 'testo',
+            url: 'minha url urlurl',
           }
         try {
             setMyLog("urlMod text: "+urlMod);
