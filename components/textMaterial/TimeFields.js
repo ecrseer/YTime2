@@ -8,11 +8,11 @@ async function compartilhar(){
     try {
         await navigator.share(shareData);
     } catch (error) {
-        setMyLog('errofoi: '+error)
+        console.log('errofoi: '+error)
     }
 }
 const TimeFields = ()=>{
     
     return(<></>)
 }
-export default TextField;
+export default TimeFields;
