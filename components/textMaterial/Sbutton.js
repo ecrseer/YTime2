@@ -32,7 +32,7 @@ export default function Sbutton({urlModif}) {
             +"shrDT url: "+shareData.url);
             await navigator.share(shareData);
         } catch (error) {
-            console.log('errofoi: '+error)
+            setMyLog('errofoi: '+error)
         }
     }
     const usarBotaoCorreto = (nav) =>{    
