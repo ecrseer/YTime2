@@ -3,18 +3,7 @@ import Button from '@material-ui/core/Button';
 import { useEffect, useState } from 'react';
 import LaunchScreen from '../launch/launchScreen';
 
-async function compartilhar(urlMod){
-    const shareData = {
-        title: 'ytvdeo',
-        text: 'youtube',
-        url: urlMod,
-      }
-    try {
-        await navigator.share(shareData);
-    } catch (error) {
-        console.log('errofoi: '+error)
-    }
-}
+
 async function copiar(urlMod){
     navigator.clipboard.writeText(''+urlMod).then(()=>{})
     .catch(err=>console.log(err));
@@ -31,7 +20,19 @@ const useStyles = makeStyles((theme) => ({
 export default function Sbutton({urlModif}) {
     const classes = useStyles();
     const [btn,setBtn] = useState(<LaunchScreen/>)
-
+    const [mylog,setMyLog] = useState('--no logs--');
+    async function compartilhar(urlMod){
+        const shareData = {
+            title: ''+urlMod,
+            text: ''+urlMod,
+            url: ''+urlMod,
+          }
+        try {
+            await navigator.share(shareData);
+        } catch (error) {
+            console.log('errofoi: '+error)
+        }
+    }
     const usarBotaoCorreto = (nav) =>{    
         if(nav.share)
          setBtn(<Button variant="contained" color="primary"
@@ -39,10 +40,12 @@ export default function Sbutton({urlModif}) {
          Compartilhar
      </Button>)
          else
-         setBtn(<Button variant="contained" color="primary"
+         setBtn(<div><Button variant="contained" color="primary"
          onClick={()=>copiar(urlModif)} >
             Copiar
-        </Button>)
+        </Button>
+        
+        </div>)
     }
 
 

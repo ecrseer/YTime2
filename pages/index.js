@@ -23,9 +23,7 @@ export default function yshindex(){
     const [Footinho,setFootinho] = useState(normalFt);
     const [Falli,setFalli] = useState(()=>{})
     
-    const [ShrButton,setShrButton] = useState(<Sbutton 
-        txt="Copiar" />)
-    const [mylog,setMyLog] = useState('--no logs--');
+    
 
     function copyBoard (result){
   
@@ -45,14 +43,11 @@ export default function yshindex(){
         if(urlvideo.search("youtube")!==-1){//se encontrou youtube 
           url=urlvideo+'&feature=youtu.be&t='+tmp;
           setUrlModif(url);
-      //badbehaviour    openLink(url);
-    }
+          }
           else 
-          if(urlvideo.search("youtu.be")!==-1){
-    //        alert("//se encontrou youtu.be");
+          if(urlvideo.search("youtu.be")!==-1){    
             url=urlvideo+'?t='+tmp;
-            setUrlModif(url);
-           //badbehaviour openLink(url);
+            setUrlModif(url);           
           }
             else
               setFootinho(<h2>Digite uma url do youtube</h2>)
@@ -95,17 +90,9 @@ export default function yshindex(){
     <Head>
       <title>Time Shared YT</title>
     </Head>
-    {waitd?<LaunchScreen/>:<></>}
-    
+    {waitd?<LaunchScreen/>:<></>}    
 
 
-
-
-
-    <button onClick={()=>setWaitd(!waitd)}>botaozdd</button>
-    <h3>urlmodif:           {urlModif}</h3>
-    <h2>es{urlvideo}</h2>
-    <h1>look at </h1>
     <div>
         <div>
         {/* <TimeFields/> */}
