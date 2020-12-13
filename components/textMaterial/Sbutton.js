@@ -32,7 +32,7 @@ export default function Sbutton({urlModif}) {
     return (
       <div className={classes.root}>
              
-        {typeof navigator.share === "undefined"?
+        {typeof navigator === "undefined"?
             <Button variant="contained" color="primary"
          onClick={()=>{copiar(urlModif)}} >
             Copiar
