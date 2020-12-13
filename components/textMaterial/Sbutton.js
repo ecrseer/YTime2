@@ -40,7 +40,7 @@ export default function Sbutton({urlModif}) {
         let myurlModif = urlModif+'2';
         return(<h1>{myurlModif}</h1>)
     }
-    const usarBotaoCorreto = (nav) =>{    
+    function usarBotaoCorreto (nav) {    
         if(nav.share)
          setBtn(<div><Button variant="contained" color="primary"
          onClick={()=>{compartilhar(urlModif)}} >
@@ -61,7 +61,7 @@ function fns(uuu){
         let txt = el.innerHTML;
         alert(uuu);
 }
-  useEffect(()=>usarBotaoCorreto(navigator),[])
+  useEffect(()=>usarBotaoCorreto(navigator),[urlModif])
     return (
       <div className={classes.root}>
         {btn}
