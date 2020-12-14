@@ -25,6 +25,17 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     
   },
+  intro:{
+      margin:theme.spacing(1)
+  },
+  thumb:{   
+      textAlign:"center",
+      justifyContent:"center"
+  },
+  pt:{
+      paddingTop:theme.spacing(2),
+      margin:theme.spacing(1)
+  }
 }));
 const theme = createMuiTheme({
     palette: {
@@ -101,21 +112,24 @@ export default function FullWidthGrid() {
       <Grid item xs={12}>
         <Topbar/>
        </Grid>
-       <Grid item xs={12}>
+       <Grid item xs={12} className={classes.intro}>
                 {intropt}        
        </Grid>
-      <Grid className={classes.paper} item xs={8} sm={4}>
+      <Grid className={classes.paper} item xs={8} sm={4} md={4}>
         <Myapp urvideo={urlvideo}/>
       </Grid>
-      <Grid item xs={4} sm={2} >
-      <img width="90%"
+      <Grid item xs={4} sm={2} md={8} lg={12}>
+      <img width="50%"
         src="https://img.youtube.com/vi/1sIWez9HAbA/sddefault.jpg" 
-        alt="nn"></img>
+        alt="nn"
+        className={classes.thumb}
+        ></img>
         </Grid>
-      <Grid item xs={6} sm={3}>      
+        
+      <Grid item xs={6} sm={3} md={10} lg={12} >      
       {txtpt}      
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid item xs={6} sm={3} md={2} lg={12}>
         {txt}
         </Grid>
         
