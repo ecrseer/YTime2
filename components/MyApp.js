@@ -21,7 +21,7 @@ export default function Myapp(){
     const [tempo,setTempo] = useState({minuto:0,segundo:0});
     const [urlModif,setUrlModif] = useState('');
     const [Footinho,setFootinho] = useState(normalFt);
-    const [Falli,setFalli] = useState(()=>{})
+    const [FbckURL,setFbckURL] = useState(<>test</>)
     
     
 
@@ -54,12 +54,13 @@ export default function Myapp(){
     
       }
 //remove later
-      function falbck(){
+      function flbckURL(){
         return(
+            <div>
           <TextField
                 id="standard-basic" name="min"
                 label="URL" onChange={({target:{value}})=>
-                setUrlvideo(value)}  />
+                setUrlvideo(value)}  /><br/></div>
         )
       }
 
@@ -75,6 +76,7 @@ export default function Myapp(){
         )
         .catch(function (e){
             console.log(e);
+            setFbckURL(flbckURL);
         })
     }
     
@@ -94,6 +96,7 @@ export default function Myapp(){
 
     <div>
         <div>
+        {FbckURL}
         {/* <TimeFields/> */}
         <TextField
             id="standard-number" name="min" type="number"
