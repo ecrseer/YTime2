@@ -1,4 +1,5 @@
 import Myapp from "../components/MyApp";
+import { useEffect, useState } from "react";
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Topbar from '../components/layout/Topbar'
 
@@ -6,6 +7,12 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {txtpt,txt, intropt} from '../assets/strngs'
 import { Typography } from "@material-ui/core";
+
+
+
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,9 +51,48 @@ const theme = createMuiTheme({
     }
   });
 
-export default function FullWidthGrid() {
-  const classes = useStyles();
 
+export default function FullWidthGrid() {
+    const [urlvideo, setUrlvideo] = useState('____');
+    
+    function copyBoard (result){  
+        if((result.state=='granted')||
+        result.state=='prompt'){           
+          navigator.
+          clipboard.readText().then((cip) => 
+            {setUrlvideo(cip);       
+                console.log('executou'+urlvideo);
+            })
+             .then(()=>{
+              //adiciona tempo
+                  });
+                }
+      }
+      function PedirPermissaoPraCopiar(_window){
+        _window.addEventListener("error", function (e) {
+        alert("Error occurred: " + e.error.message);
+        return false;
+     })
+      navigator.permissions.query({name:'clipboard-read',
+        allowWithoutGesture: false}).then(
+          (result)=>{
+            copyBoard(result);
+            
+                }
+        )
+        .catch(function (e){
+            console.log(e);
+           // setFbckURL(flbckURL);
+        })
+    }
+
+  
+    useEffect(()=>{
+        
+        PedirPermissaoPraCopiar(window)
+    },[urlvideo])
+
+    const classes = useStyles();
   return (    <ThemeProvider theme={theme}>
 
     <div className={classes.root}>
@@ -59,17 +105,15 @@ export default function FullWidthGrid() {
                 {intropt}        
        </Grid>
       <Grid className={classes.paper} item xs={8} sm={4}>
-        <Myapp/>
+        <Myapp urvideo={urlvideo}/>
       </Grid>
       <Grid item xs={4} sm={2} >
       <img width="90%"
         src="https://img.youtube.com/vi/1sIWez9HAbA/sddefault.jpg" 
         alt="nn"></img>
         </Grid>
-      <Grid item xs={6} sm={3}>
-      
-      {txtpt}
-      
+      <Grid item xs={6} sm={3}>      
+      {txtpt}      
         </Grid>
         <Grid item xs={6} sm={3}>
         {txt}

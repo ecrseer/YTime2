@@ -15,9 +15,9 @@ const normalFt = (<a
     Made with ❤️ by  gjm
   </a>);
 
-export default function Myapp(){ 
+export default function Myapp({urvideo}){ 
     const [waitd,setWaitd] = useState(true);
-    const [urlvideo, setUrlvideo] = useState('____');
+    const [urlvideo, setUrlvideo] = useState(''+urvideo);    
     const [tempo,setTempo] = useState({minuto:0,segundo:0});
     const [urlModif,setUrlModif] = useState('');
     const [Footinho,setFootinho] = useState(normalFt);
@@ -25,20 +25,8 @@ export default function Myapp(){
     const [vThumbnail,setvThumbnail] = useState(<></>);
     
 
-    function copyBoard (result){
-  
-        if((result.state=='granted')||
-        result.state=='prompt'){           
-          navigator.
-          clipboard.readText().then((cip) => 
-            {setUrlvideo(cip);
-             
-            })
-             .then(()=>{
-              //adiciona tempo
-                  });
-                }
-      }
+
+
       function adicionaTempo(){
         let tmp= parseInt(tempo.minuto)+parseInt(tempo.segundo);
         let url="";
@@ -60,36 +48,22 @@ export default function Myapp(){
         return(
             <div>
           <TextField
-                id="standard-basic" name="min"
-                
+                id="standard-basic" name="min"                
                 label="URL" onChange={({target:{value}})=>
                 setUrlvideo(value)}  /><br/></div>
         )
       }
 
       
-    function PedirPermissaoPraCopiar(_window){
-        _window.addEventListener("error", function (e) {
-        alert("Error occurred: " + e.error.message);
-        return false;
-     })
-      navigator.permissions.query({name:'clipboard-read',
-        allowWithoutGesture: false}).then(
-          (result)=>{
-            copyBoard(result);
-                }
-        )
-        .catch(function (e){
-            console.log(e);
-            setFbckURL(flbckURL);
-        })
-    }
+    
     
 
     
     useEffect(()=>{
         setWaitd(false);
-        PedirPermissaoPraCopiar(window);
+        console.log(urvideo)
+        setUrlvideo(''+urvideo)
+        //PedirPermissaoPraCopiar(window);
     },[urlvideo,tempo])
     return(
   <>
@@ -103,7 +77,7 @@ export default function Myapp(){
         <div>
         {FbckURL}
         {/* <TimeFields/> */}
-        
+        <button onClick={()=>alert(urlvideo)}>urlvideo</button>
         </div>
         <div>
         <TextField
