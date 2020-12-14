@@ -54,15 +54,10 @@ export default function Myapp({urvideo}){
         )
       }
 
-      
-    
-    
-
-    
     useEffect(()=>{
         setWaitd(false);
-        console.log(urvideo)
-        setUrlvideo(''+urvideo)
+        const hvideo = ""+urvideo;
+        setUrlvideo(''+hvideo)        
         //PedirPermissaoPraCopiar(window);
     },[urlvideo,tempo])
     return(
@@ -77,7 +72,7 @@ export default function Myapp({urvideo}){
         <div>
         {FbckURL}
         {/* <TimeFields/> */}
-        <button onClick={()=>alert(urlvideo)}>urlvideo</button>
+        
         </div>
         <div>
         <TextField

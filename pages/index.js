@@ -1,5 +1,7 @@
 import Myapp from "../components/MyApp";
 import { useEffect, useState } from "react";
+import Image from 'next/image'
+
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Topbar from '../components/layout/Topbar'
 
@@ -7,11 +9,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {txtpt,txt, intropt} from '../assets/strngs'
 import { Typography } from "@material-ui/core";
-
-
-
-
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,10 +29,6 @@ const useStyles = makeStyles((theme) => ({
       textAlign:"center",
       justifyContent:"center"
   },
-  pt:{
-      paddingTop:theme.spacing(2),
-      margin:theme.spacing(1)
-  }
 }));
 const theme = createMuiTheme({
     palette: {
@@ -64,15 +57,20 @@ const theme = createMuiTheme({
 
 
 export default function FullWidthGrid() {
-    const [urlvideo, setUrlvideo] = useState('____');
-    
+    const [urlvideo, setUrlvideo] = useState({completa:'',idw:''});
+    const [optURL,setOptURL] = useState(<></>)
     function copyBoard (result){  
         if((result.state=='granted')||
         result.state=='prompt'){           
           navigator.
           clipboard.readText().then((cip) => 
-            {setUrlvideo(cip);       
-                console.log('executou'+urlvideo);
+            {let
+                myobj = {
+                    completa: cip,
+                    idw: urlvideo.idw
+                }
+                setUrlvideo(myobj);       
+                
             })
              .then(()=>{
               //adiciona tempo
@@ -97,12 +95,24 @@ export default function FullWidthGrid() {
         })
     }
 
-  
-    useEffect(()=>{
-        
-        PedirPermissaoPraCopiar(window)
+  function idThumb(){
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    let urlvid = ""+urlvideo.completa;
+    var match = urlvid.match(regExp);
+    return (match&&match[7].length==11)? match[7] : false;
+  }
+  function carregarThumb(){
+      let idT = idThumb();
+      if (!idT)
+        return idT;
+    else
+    return '';
+  }
+    useEffect(()=>{    
+        PedirPermissaoPraCopiar(window)            
+            
     },[urlvideo])
-
+    
     const classes = useStyles();
   return (    <ThemeProvider theme={theme}>
 
@@ -113,14 +123,20 @@ export default function FullWidthGrid() {
         <Topbar/>
        </Grid>
        <Grid item xs={12} className={classes.intro}>
-                {intropt}        
+                {intropt}    
+                {optURL}    
        </Grid>
+
       <Grid className={classes.paper} item xs={8} sm={4} md={4}>
-        <Myapp urvideo={urlvideo}/>
+       
+        <Myapp urvideo={urlvideo.completa}/>
       </Grid>
+
+
       <Grid item xs={4} sm={2} md={8} lg={12}>
       <img width="50%"
-        src="https://img.youtube.com/vi/1sIWez9HAbA/sddefault.jpg" 
+        src={urlvideo.completa!== ''?
+                    'https://img.youtube.com/vi/'+'carregarThumb()'+'/sddefault.jpg' :'/icons/logo.png'}
         alt="nn"
         className={classes.thumb}
         ></img>
