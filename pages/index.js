@@ -59,6 +59,7 @@ const theme = createMuiTheme({
 export default function FullWidthGrid() {
     const [urlvideo, setUrlvideo] = useState({completa:'',idw:''});
     const [optURL,setOptURL] = useState(<></>)
+    const [thumbvideo,setThumbvideo] = useState('');
     function copyBoard (result){  
         if((result.state=='granted')||
         result.state=='prompt'){           
@@ -103,14 +104,18 @@ export default function FullWidthGrid() {
   }
   function carregarThumb(){
       let idT = idThumb();
-      if (!idT)
+      if (!idT){
+          console.log('idT eh'+idT)
+          let thmb = 'https://img.youtube.com/vi/'+idT+'/sddefault.jpg';
+          setThumbvideo(thmb);
         return idT;
+    }
     else
     return '';
   }
     useEffect(()=>{    
         PedirPermissaoPraCopiar(window)            
-            
+        
     },[urlvideo])
     
     const classes = useStyles();
@@ -136,7 +141,7 @@ export default function FullWidthGrid() {
       <Grid item xs={4} sm={2} md={8} lg={12}>
       <img width="50%"
         src={urlvideo.completa!== ''?
-                    'https://img.youtube.com/vi/'+'carregarThumb()'+'/sddefault.jpg' :'/icons/logo.png'}
+                    thumbvideo :'/icons/logo.png'}
         alt="nn"
         className={classes.thumb}
         ></img>
