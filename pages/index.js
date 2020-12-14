@@ -4,7 +4,8 @@ import Topbar from '../components/layout/Topbar'
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import {txtpt} from '../assets/strngs'
+import {txtpt,txt} from '../assets/strngs'
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +30,17 @@ const theme = createMuiTheme({
       },
       multilineColor:{
         color:'#D6D5C9'
-    }
+    },
+    typography:{
+        fontSize:10,
+        fontFamily: [
+            'Nunito',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+          ].join(','),
+    },
     }
   });
 
@@ -38,24 +49,29 @@ export default function FullWidthGrid() {
 
   return (    <ThemeProvider theme={theme}>
 
-    <div className={classes.root}>a
+    <div className={classes.root}>
       <Grid container spacing={0}>
+      
       <Grid item xs={12}>
         <Topbar/>
        </Grid>
+
       <Grid className={classes.paper} item xs={12} sm={6}>
         <Myapp/>
       </Grid>
+
       <Grid item xs={6} sm={3}>
-      
+      <Typography variant="h6">
+      {txtpt}
+      </Typography>
         </Grid>
         <Grid item xs={6} sm={3}>
-        
+        {txt}
         </Grid>
         
 
         <Grid item xs={12}>
-            {txtpt}
+            
        </Grid>
      </Grid>
   </div>
