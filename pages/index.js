@@ -1,119 +1,39 @@
-import Head from 'next/head'
-import { useEffect, useState } from 'react'
-import LaunchScreen from '../components/launch/launchScreen'
-import Sbutton from '../components/textMaterial/Sbutton';
-import TextField from '../components/textMaterial/TextField'
-import TimeFields from '../components/textMaterial/TimeFields'
+import Myapp from "../components/MyApp";
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
 
+export default function FullWidthGrid() {
+  const classes = useStyles();
 
-const normalFt = (<a
-    href="https://github.com/ecrseer"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Made with ❤️ by  gjm
-  </a>);
-
-export default function yshindex(){ 
-    const [waitd,setWaitd] = useState(true);
-    const [urlvideo, setUrlvideo] = useState('____');
-    const [tempo,setTempo] = useState({minuto:0,segundo:0});
-    const [urlModif,setUrlModif] = useState('');
-    const [Footinho,setFootinho] = useState(normalFt);
-    const [Falli,setFalli] = useState(()=>{})
-    
-    
-
-    function copyBoard (result){
-  
-        if((result.state=='granted')||
-        result.state=='prompt'){           
-          navigator.
-          clipboard.readText().then((cip) => 
-            {setUrlvideo(cip);})
-             .then(()=>{
-              //adiciona tempo
-                  });
-                }
-      }
-      function adicionaTempo(){
-        let tmp= parseInt(tempo.minuto)+parseInt(tempo.segundo);
-        let url="";
-        if(urlvideo.search("youtube")!==-1){//se encontrou youtube 
-          url=urlvideo+'&feature=youtu.be&t='+tmp;
-          setUrlModif(url);
-          }
-          else 
-          if(urlvideo.search("youtu.be")!==-1){    
-            url=urlvideo+'?t='+tmp;
-            setUrlModif(url);           
-          }
-            else
-              setFootinho(<h2>Digite uma url do youtube</h2>)
-    
-      }
-//remove later
-      function falbck(){
-        return(
-          <TextField
-                id="standard-basic" name="min"
-                label="URL" onChange={({target:{value}})=>
-                setUrlvideo(value)}  />
+  return (
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+      <Grid item xs={12} sm={6}>
+        <Myapp/>
+      </Grid>
+      <Grid item xs={6} sm={3}>
+        
+        </Grid>
+        <Grid item xs={6} sm={3}>
+        
+        </Grid>
+        
+        
+        <Grid item xs={12}>
+       </Grid>
+     </Grid>
+  </div>
         )
-      }
-
-    function PedirPermissaoPraCopiar(_window){
-        _window.addEventListener("error", function (e) {
-        alert("Error occurred: " + e.error.message);
-        return false;
-     })
-      navigator.permissions.query({name:'clipboard-read',
-        allowWithoutGesture: false}).then(
-          (result)=>{
-            copyBoard(result);
-          }
-        )
-        .catch(function (e){
-            console.log(e);
-        })
-    }
-    
-
-    
-    useEffect(()=>{
-        setWaitd(false);
-        PedirPermissaoPraCopiar(window);
-    },[urlvideo,tempo])
-    return(
-  <>
-    <Head>
-      <title>Time Shared YT</title>
-    </Head>
-    {waitd?<LaunchScreen/>:<></>}    
-
-
-    <div>
-        <div>
-        {/* <TimeFields/> */}
-        <TextField
-            id="standard-number" name="min" type="number"
-            label="Minutos" onChange={({target:{value}})=>setTempo({
-              segundo:tempo.segundo, minuto:value*60
-            })}  />
-    <TextField
-              id="standard-number" 
-              label="Segundos" name="seg" type="number"                         
-              onChange={({target:{value}})=> setTempo(
-                {segundo:value,minuto:tempo.minuto}) }  
-                onBlur={adicionaTempo}        
-            />
-            </div>
-            <Sbutton urlModif={urlModif}/>
-            
-            </div>            
-    
-    
-  </>
-)
-}
+        }

@@ -17,7 +17,7 @@ export default function Sbutton({urlModif}) {
     },[])
     async function copiar(urlMod){
         
-        navigator.clipboard.writeText('test'+urlMod).then(()=>{})
+        navigator.clipboard.writeText(''+urlMod).then(()=>{})
         .catch(err=>console.log(err));
     }
      async function compartilhar(urlModi){        
