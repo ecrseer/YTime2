@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "cross-env": "^7.0.2",
     "fastify": "^3.8.0",
     "fastify-compress": "^3.4.0",
