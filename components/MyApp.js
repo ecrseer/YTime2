@@ -21,7 +21,7 @@ export default function Myapp(){
     const [tempo,setTempo] = useState({minuto:0,segundo:0});
     const [urlModif,setUrlModif] = useState('');
     const [Footinho,setFootinho] = useState(normalFt);
-    const [FbckURL,setFbckURL] = useState(<>test</>)
+    const [FbckURL,setFbckURL] = useState(<></>)
     
     
 
