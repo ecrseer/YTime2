@@ -10,14 +10,18 @@ import MenuIcon from '@material-ui/icons/Menu';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor:'#fff'
+    
+  },
+  toolbar:{
+    backgroundColor:'#902923'
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
-    color: '#f11'
+    color: '#D6D5C9',
+    textAlign:'center'
   },
 }));
 
@@ -27,16 +31,12 @@ export default function ButtonAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
-        <Toolbar>
-          <IconButton edge="start" 
-          className={classes.menuButton} 
-          color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
+        <Toolbar className={classes.toolbar}>
+          
           <Typography variant="h6" className={classes.title}>
             Time Shared Youtube
           </Typography>
-          <Button color="inherit">Login</Button>
+          
         </Toolbar>
       </AppBar>
       <Toolbar/>

@@ -1,9 +1,11 @@
 import Myapp from "../components/MyApp";
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Topbar from '../components/layout/Topbar'
-import { makeStyles } from '@material-ui/core/styles';
+
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {txt2} from '../assets/strngs'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -15,11 +17,24 @@ const useStyles = makeStyles((theme) => ({
     
   },
 }));
+const theme = createMuiTheme({
+    palette: {
+      secondary: {
+        main: '#E33E7F'
+      },
+      primary:{
+          main: '#fff',
+          contrastText:'#902923'
+      }
+      
+    }
+  });
 
 export default function FullWidthGrid() {
   const classes = useStyles();
 
-  return (
+  return (    <ThemeProvider theme={theme}>
+
     <div className={classes.root}>
       <Grid container spacing={3}>
       <Grid item xs={12}>
@@ -41,4 +56,5 @@ export default function FullWidthGrid() {
        </Grid>
      </Grid>
   </div>
+  </ThemeProvider>
         )}

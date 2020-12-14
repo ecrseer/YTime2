@@ -1,12 +1,17 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { useEffect, useState } from 'react';
+import { capitalize, Typography } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(2),
       
     },
+    btnText:{
+        color:'#902923',
+        
+    }
   },
 }));
 
@@ -37,8 +42,8 @@ export default function Sbutton({urlModif}) {
              
         {typeof myNav === "undefined"?
             <Button variant="contained" color="primary"
-         onClick={()=>{copiar(urlModif)}} >
-            Copiar
+         onClick={()=>{copiar(urlModif)}} >            
+              Copiar            
         </Button>
         :
             <Button variant="contained" color="primary"
