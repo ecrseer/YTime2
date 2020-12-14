@@ -4,7 +4,7 @@ import Topbar from '../components/layout/Topbar'
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import {txtpt,txt} from '../assets/strngs'
+import {txtpt,txt, intropt} from '../assets/strngs'
 import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -55,15 +55,21 @@ export default function FullWidthGrid() {
       <Grid item xs={12}>
         <Topbar/>
        </Grid>
-
-      <Grid className={classes.paper} item xs={12} sm={6}>
+       <Grid item xs={12}>
+                {intropt}        
+       </Grid>
+      <Grid className={classes.paper} item xs={8} sm={4}>
         <Myapp/>
       </Grid>
-
+      <Grid item xs={4} sm={2} >
+      <img width="90%"
+        src="https://img.youtube.com/vi/1sIWez9HAbA/sddefault.jpg" 
+        alt="nn"></img>
+        </Grid>
       <Grid item xs={6} sm={3}>
-      <Typography variant="h6">
+      
       {txtpt}
-      </Typography>
+      
         </Grid>
         <Grid item xs={6} sm={3}>
         {txt}

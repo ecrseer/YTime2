@@ -22,7 +22,7 @@ export default function Myapp(){
     const [urlModif,setUrlModif] = useState('');
     const [Footinho,setFootinho] = useState(normalFt);
     const [FbckURL,setFbckURL] = useState(<></>)
-    
+    const [vThumbnail,setvThumbnail] = useState(<></>);
     
 
     function copyBoard (result){
@@ -31,7 +31,9 @@ export default function Myapp(){
         result.state=='prompt'){           
           navigator.
           clipboard.readText().then((cip) => 
-            {setUrlvideo(cip);})
+            {setUrlvideo(cip);
+             
+            })
              .then(()=>{
               //adiciona tempo
                   });
@@ -65,6 +67,7 @@ export default function Myapp(){
         )
       }
 
+      
     function PedirPermissaoPraCopiar(_window){
         _window.addEventListener("error", function (e) {
         alert("Error occurred: " + e.error.message);
@@ -73,7 +76,8 @@ export default function Myapp(){
       navigator.permissions.query({name:'clipboard-read',
         allowWithoutGesture: false}).then(
           (result)=>{
-            copyBoard(result);          }
+            copyBoard(result);
+                }
         )
         .catch(function (e){
             console.log(e);
@@ -99,6 +103,9 @@ export default function Myapp(){
         <div>
         {FbckURL}
         {/* <TimeFields/> */}
+        
+        </div>
+        <div>
         <TextField
             id="standard-number" name="min" type="number"
             label="Minutos" 

@@ -49,7 +49,6 @@ export default class extends Document {
             h1 {
               text-align: center;              
             }
-            
             `
           }</style>
         </Head>

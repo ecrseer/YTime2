@@ -27,9 +27,7 @@ export default function Sbutton({urlModif}) {
         .catch(err=>console.log(err));
     }
      async function compartilhar(urlModi){        
-        const shareData = {           
-            title:''+urlModi,
-            text:''+urlModi,
+        const shareData = {  
             url:''+urlModi
           }
         try {            
