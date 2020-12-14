@@ -4,11 +4,12 @@ import Topbar from '../components/layout/Topbar'
 
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import {txt2} from '../assets/strngs'
+import {txtpt} from '../assets/strngs'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    backgroundColor:'#D6D5C9'
   },
   paper: {
     padding: theme.spacing(2),
@@ -23,10 +24,12 @@ const theme = createMuiTheme({
         main: '#E33E7F'
       },
       primary:{
-          main: '#fff',
-          contrastText:'#902923'
-      }
-      
+          main: '#902923',
+          contrastText:'#D6D5C9'
+      },
+      multilineColor:{
+        color:'#D6D5C9'
+    }
     }
   });
 
@@ -35,8 +38,8 @@ export default function FullWidthGrid() {
 
   return (    <ThemeProvider theme={theme}>
 
-    <div className={classes.root}>
-      <Grid container spacing={3}>
+    <div className={classes.root}>a
+      <Grid container spacing={0}>
       <Grid item xs={12}>
         <Topbar/>
        </Grid>
@@ -52,7 +55,7 @@ export default function FullWidthGrid() {
         
 
         <Grid item xs={12}>
-            {txt2}
+            {txtpt}
        </Grid>
      </Grid>
   </div>

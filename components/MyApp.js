@@ -59,6 +59,7 @@ export default function Myapp(){
             <div>
           <TextField
                 id="standard-basic" name="min"
+                
                 label="URL" onChange={({target:{value}})=>
                 setUrlvideo(value)}  /><br/></div>
         )
@@ -100,7 +101,8 @@ export default function Myapp(){
         {/* <TimeFields/> */}
         <TextField
             id="standard-number" name="min" type="number"
-            label="Minutos" onChange={({target:{value}})=>setTempo({
+            label="Minutos" 
+            onChange={({target:{value}})=>setTempo({
               segundo:tempo.segundo, minuto:value*60
             })}  /><br/>
     <TextField
