@@ -56,6 +56,7 @@ export default class extends Document {
         <body>
           <Main />
           <NextScript />
+          <script data-ad-client="ca-pub-6327791955539503" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </body>
       </Html>
     )
