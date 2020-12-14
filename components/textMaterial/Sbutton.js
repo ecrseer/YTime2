@@ -29,6 +29,8 @@ export default function Sbutton({urlModif}) {
      async function compartilhar(urlModi){        
         const shareData = {           
             title:''+urlModi,
+            text:''+urlModi,
+            url:''+urlModi
           }
         try {            
              navigator.share(shareData).then(()=>{}).catch(er=>new er);
