@@ -9,28 +9,10 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {txtpt,txt, intropt} from '../assets/strngs'
 import { Typography } from "@material-ui/core";
+import { stylex } from "./indexcss";
 
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor:'#D6D5C9'
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    
-  },
-  intro:{
-      margin:theme.spacing(1)
-  },
-  thumb:{   
-    textAlign:"center",
-    justifyContent:"center",      
-    maxWidth:'90%'
-  },
-}));
+const useStyles = makeStyles(stylex);
 const theme = createMuiTheme({
     palette: {
       secondary: {
@@ -122,8 +104,7 @@ export default function FullWidthGrid() {
     }
 
     useEffect(()=>{    
-        PedirPermissaoPraCopiar(window)            
-        
+        PedirPermissaoPraCopiar(window)
     },[])
     
     const classes = useStyles();
@@ -146,24 +127,26 @@ export default function FullWidthGrid() {
       </Grid>
 
 
-      <Grid item xs={4} sm={2} md={8} lg={12} className={classes.thumb}>
-      <img className={classes.thumb}
-        src={urlvideo.completa!== ''?
-                    thumbvideo :'/icons/logo.png'}
-        alt="nn"        
-        ></img>
+      <Grid item xs={4} sm={2} md={8} lg={12} className={classes.thumbdiv}>
+        <img className={classes.thumb}
+            src={urlvideo.completa!== ''?
+                        thumbvideo :'/icons/logo.png'}
+            alt="nn"        
+            ></img>
         </Grid>
         
-      <Grid item xs={6} sm={3} md={10} lg={12} >      
+      <Grid item xs={6} sm={3} md={10} lg={12} 
+      className={classes.txtpt}>      
       {txtpt}      
         </Grid>
-        <Grid item xs={6} sm={3} md={2} lg={12}>
+        <Grid item xs={6} sm={3} md={2} lg={12}
+        className={classes.txtpt}>
         {txt}
         </Grid>
         
 
-        <Grid item xs={12}>
-            
+        <Grid item xs={12} className={classes.fter}>
+            aa
        </Grid>
      </Grid>
   </div>

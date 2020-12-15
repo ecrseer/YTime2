@@ -6,28 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { stylex } from './Topbarcss';
+import { Box } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    
-  },
-  toolbar:{
-    backgroundColor:'#902923',
-    textAlign:'center',
-    justifyContent:'center'
-
-
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  titl: {
-    color: '#D6D5C9',
-    textAlign:'center',
-    justifyContent:'center'
-  },
-}));
+const useStyles = makeStyles(stylex);
 
 export default function ButtonAppBar() {
   const classes = useStyles();
@@ -35,15 +17,17 @@ export default function ButtonAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
-        <Toolbar className={classes.toolbar}>
+      <Box >
+        <Toolbar className={classes.toolbar} borderRadius={16}>
           
           <Typography variant="h6" className={classes.titl}>
             Time Shared Youtube
           </Typography>
           
         </Toolbar>
+        </Box>
       </AppBar>
-      <Toolbar/>
+      <Toolbar/>      
     </div>
   );
 }
