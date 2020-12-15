@@ -13,15 +13,19 @@ const useStyles = makeStyles((theme) => ({
     
   },
   toolbar:{
-    backgroundColor:'#902923'
+    backgroundColor:'#902923',
+    textAlign:'center',
+    justifyContent:'center'
+
+
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
-    flexGrow: 1,
+  titl: {
     color: '#D6D5C9',
-    textAlign:'center'
+    textAlign:'center',
+    justifyContent:'center'
   },
 }));
 
@@ -33,7 +37,7 @@ export default function ButtonAppBar() {
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className={classes.titl}>
             Time Shared Youtube
           </Typography>
           

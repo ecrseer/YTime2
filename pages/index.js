@@ -26,8 +26,9 @@ const useStyles = makeStyles((theme) => ({
       margin:theme.spacing(1)
   },
   thumb:{   
-      textAlign:"center",
-      justifyContent:"center"
+    textAlign:"center",
+    justifyContent:"center",      
+    maxWidth:'90%'
   },
 }));
 const theme = createMuiTheme({
@@ -60,6 +61,29 @@ export default function FullWidthGrid() {
     const [urlvideo, setUrlvideo] = useState({completa:'',idw:''});
     const [optURL,setOptURL] = useState(<></>)
     const [thumbvideo,setThumbvideo] = useState('');
+
+
+    
+  function _idThumb(_urlvideo){
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    let urlvid = ""+_urlvideo;
+    console.log('urlvid:'+urlvid)
+    var match = urlvid.match(regExp);
+    return (match&&match[7].length==11)? match[7] : false;
+  }
+  function carregarThumb(url){
+      let idT = _idThumb(url);
+      if (idT){
+          console.log('idT eh'+idT)
+          let thmb = 'https://img.youtube.com/vi/'+idT+'/sddefault.jpg';
+          setThumbvideo(thmb);
+          
+        return idT;
+    }
+    else
+    return '';
+  }
+
     function copyBoard (result){  
         if((result.state=='granted')||
         result.state=='prompt'){           
@@ -69,9 +93,10 @@ export default function FullWidthGrid() {
                 myobj = {
                     completa: cip,
                     idw: urlvideo.idw
-                }
+                };
                 setUrlvideo(myobj);       
-                
+                console.log('consegui copiar'+cip)
+                carregarThumb(cip);
             })
              .then(()=>{
               //adiciona tempo
@@ -87,36 +112,19 @@ export default function FullWidthGrid() {
         allowWithoutGesture: false}).then(
           (result)=>{
             copyBoard(result);
-            
+            console.log('acabei de copiar')
                 }
         )
         .catch(function (e){
-            console.log(e);
+            console.log('nao consegui copiar:'+e);
            // setFbckURL(flbckURL);
         })
     }
 
-  function idThumb(){
-    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-    let urlvid = ""+urlvideo.completa;
-    var match = urlvid.match(regExp);
-    return (match&&match[7].length==11)? match[7] : false;
-  }
-  function carregarThumb(){
-      let idT = idThumb();
-      if (!idT){
-          console.log('idT eh'+idT)
-          let thmb = 'https://img.youtube.com/vi/'+idT+'/sddefault.jpg';
-          setThumbvideo(thmb);
-        return idT;
-    }
-    else
-    return '';
-  }
     useEffect(()=>{    
         PedirPermissaoPraCopiar(window)            
         
-    },[urlvideo])
+    },[])
     
     const classes = useStyles();
   return (    <ThemeProvider theme={theme}>
@@ -138,12 +146,11 @@ export default function FullWidthGrid() {
       </Grid>
 
 
-      <Grid item xs={4} sm={2} md={8} lg={12}>
-      <img width="50%"
+      <Grid item xs={4} sm={2} md={8} lg={12} className={classes.thumb}>
+      <img className={classes.thumb}
         src={urlvideo.completa!== ''?
                     thumbvideo :'/icons/logo.png'}
-        alt="nn"
-        className={classes.thumb}
+        alt="nn"        
         ></img>
         </Grid>
         
