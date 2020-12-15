@@ -1,15 +1,12 @@
 const stylex = 
 (theme) => ({
-    root: {
-      flexGrow: 1,
-      
+    root: {      
     },
     toolbar:{
       backgroundColor:'#902923',
       textAlign:'center',
       justifyContent:'center',
-      borderRadius: 3,
-    
+      borderRadius: '30px',    
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -17,7 +14,8 @@ const stylex =
     titl: {
       color: '#D6D5C9',
       textAlign:'center',
-      justifyContent:'center'
+      justifyContent:'center',
+      
     },
   })
   module.exports= {stylex}

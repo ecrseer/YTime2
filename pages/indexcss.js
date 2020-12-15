@@ -13,12 +13,15 @@ const stylex =
   },
   intro:{
       margin:theme.spacing(1),
-      alignItems:'right'
+      placeItems:'center',
+      textAlign:"center",
+    justifyContent:"center", 
   },
   thumb:{   
     textAlign:"center",
     justifyContent:"center",      
     maxWidth:'90%',
+    borderRadius:'30px'
     
         
   },
@@ -26,10 +29,16 @@ const stylex =
       placeItems:'center'
   },
   txtpt:{
-      margin:theme.spacing(2)
+      margin:theme.spacing(2),
+      placeItems:'center',
+      textAlign:"center",
+    justifyContent:"center",   
   },
   fter:{
       gridTemplateRows:1
+  },
+  sign:{
+      fontSize:'7px',
   }
 })
 module.exports= { stylex}

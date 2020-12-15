@@ -135,18 +135,18 @@ export default function FullWidthGrid() {
             ></img>
         </Grid>
         
-      <Grid item xs={6} sm={3} md={10} lg={12} 
+      <Grid item xs={6} sm={6} md={8} lg={12} 
       className={classes.txtpt}>      
       {txtpt}      
         </Grid>
-        <Grid item xs={6} sm={3} md={2} lg={12}
+        <Grid item xs={6} sm={6} md={2} lg={12}
         className={classes.txtpt}>
         {txt}
         </Grid>
         
 
         <Grid item xs={12} className={classes.fter}>
-            aa
+            <p className={classes.sign}>made with ❤️ by gjm</p>
        </Grid>
      </Grid>
   </div>
