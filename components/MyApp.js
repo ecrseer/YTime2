@@ -84,7 +84,7 @@ export default function Myapp({urvideo}){
     <TextField
               id="standard-number" 
               label="Segundos" name="seg" type="number"      
-              autoComplete="new-password"                   
+              autoComplete="off"                   
               onChange={({target:{value}})=> setTempo(
                 {segundo:value,minuto:tempo.minuto}) }  
                 onBlur={adicionaTempo}        
