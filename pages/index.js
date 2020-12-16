@@ -121,13 +121,13 @@ export default function FullWidthGrid() {
                 {optURL}    
        </Grid>
 
-      <Grid className={classes.paper} item xs={8} sm={4} md={4}>
+      <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={9}>
        
         <Myapp urvideo={urlvideo.completa}/>
       </Grid>
 
 
-      <Grid item xs={4} sm={2} md={8} lg={12} className={classes.thumbdiv}>
+      <Grid item xs={4} sm={2} md={8}  className={classes.thumbdiv}>
         <img className={classes.thumb}
             src={urlvideo.completa!== ''?
                         thumbvideo :'/icons/logo.png'}
@@ -135,11 +135,11 @@ export default function FullWidthGrid() {
             ></img>
         </Grid>
         
-      <Grid item xs={6} sm={4} md={8} lg={12} 
+      <Grid item xs={6} sm={6} md={8} lg={12} 
       className={classes.txtpt}>      
       {txtpt}      
         </Grid>
-        <Grid item xs={6} sm={4} md={8} lg={12}
+        <Grid item xs={6} sm={6} md={8} lg={12}
         className={classes.txtpt}>
         {txt}
         </Grid>
