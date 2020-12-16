@@ -9,7 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {txtpt,txt, intropt} from '../assets/strngs'
 import { Typography } from "@material-ui/core";
-import { stylex } from "./indexcss";
+import { stylex } from "../styles/indexcss";
 
 
 const useStyles = makeStyles(stylex);
@@ -139,7 +139,7 @@ export default function FullWidthGrid() {
       className={classes.txtpt}>      
       {txtpt}      
         </Grid>
-        <Grid item xs={6} sm={6} md={2} lg={12}
+        <Grid item xs={6} sm={6} md={8} lg={12}
         className={classes.txtpt}>
         {txt}
         </Grid>
