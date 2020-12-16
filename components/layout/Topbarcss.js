@@ -3,10 +3,10 @@ const stylex =
     root: {      
     },
     toolbar:{
-      backgroundColor:'#902923',
+      backgroundColor:'#b53369',
       textAlign:'center',
       justifyContent:'center',
-      borderRadius: '30px',    
+      borderRadius: '0px 0px 50px 50px',    
     },
     menuButton: {
       marginRight: theme.spacing(2),

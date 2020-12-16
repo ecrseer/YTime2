@@ -22,14 +22,14 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
-      <Box className={classes.toolbar} borderRadius={16}>
+      <AppBar position="fixed" className={classes.toolbar}>
+      
         <Toolbar className={classes.toolbar}>          
           <Typography variant="h6" className={classes.titl}>
             Time Shared for Youtube
           </Typography>          
         </Toolbar>
-        </Box>
+        
       </AppBar>
       <Toolbar/>      
     </div>

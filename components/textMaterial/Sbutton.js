@@ -9,8 +9,11 @@ const useStyles = makeStyles((theme) => ({
       
     },
     btnText:{
-        color:'#902923',
-        
+        color:'#902923',      
+
+    },
+    btn:{
+        borderRadius: '0px 0px 50px 50px',  
     }
   },
 }));
@@ -42,12 +45,12 @@ export default function Sbutton({urlModif}) {
              
         {typeof myNav === "undefined"?
             <Button variant="contained" color="primary"
-         onClick={()=>{copiar(urlModif)}} >            
+         onClick={()=>{copiar(urlModif)}} className={classes.btn} >            
               Copiar            
         </Button>
         :
             <Button variant="contained" color="primary"
-         onClick={()=>{compartilhar(urlModif)}} >
+         onClick={()=>{compartilhar(urlModif)}} className={classes.btn}>
          Compartilhar
      </Button>
      

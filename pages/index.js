@@ -19,7 +19,7 @@ const theme = createMuiTheme({
         main: '#E33E7F'
       },
       primary:{
-          main: '#902923',
+          main: '#b53369',
           contrastText:'#D6D5C9'
       },
       multilineColor:{
@@ -135,11 +135,11 @@ export default function FullWidthGrid() {
             ></img>
         </Grid>
         
-      <Grid item xs={6} sm={6} md={8} lg={12} 
+      <Grid item xs={6} sm={4} md={8} lg={12} 
       className={classes.txtpt}>      
       {txtpt}      
         </Grid>
-        <Grid item xs={6} sm={6} md={8} lg={12}
+        <Grid item xs={6} sm={4} md={8} lg={12}
         className={classes.txtpt}>
         {txt}
         </Grid>

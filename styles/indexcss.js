@@ -21,8 +21,7 @@ const stylex =
     textAlign:"center",
     justifyContent:"center",      
     maxWidth:'90%',
-    borderRadius:'30px'
-    
+    borderRadius: '0px 0px 50px 50px',    
         
   },
   thumbdiv:{
@@ -39,6 +38,7 @@ const stylex =
   },
   sign:{
       fontSize:'7px',
+      textAlign:'right'
   }
 })
 module.exports= { stylex}
