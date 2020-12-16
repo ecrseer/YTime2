@@ -1,5 +1,5 @@
 const stylex = 
-(theme) => (
+(theme,props) => (
 {
   root: {
     flexGrow: 1,
@@ -39,6 +39,16 @@ const stylex =
   sign:{
       fontSize:'7px',
       textAlign:'right'
+  },
+  parallax:{
+    width:'100%',
+    height: '200px',
+    backgroundImage: props=>props.currentThumb,
+    backgroundPosition:'-1% 280%',
+    backgroundAttachment:'fixed',
+    backgroundSize:'cover',
+    borderRadius: '0px 0px 50px 50px',    
+
   }
 })
 module.exports= { stylex}

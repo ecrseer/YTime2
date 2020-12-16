@@ -13,6 +13,13 @@ import { stylex } from "../styles/indexcss";
 
 
 const useStyles = makeStyles(stylex);
+const useStyles2 = makeStyles((theme)=>(
+    {
+        root:{
+            
+        }
+    }
+));
 const theme = createMuiTheme({
     palette: {
       secondary: {
@@ -42,7 +49,7 @@ const theme = createMuiTheme({
 export default function FullWidthGrid() {
     const [urlvideo, setUrlvideo] = useState({completa:'',idw:''});
     const [optURL,setOptURL] = useState(<></>)
-    const [thumbvideo,setThumbvideo] = useState('');
+    const [thumbvideo,setThumbvideo] = useState(false);
 
 
     
@@ -106,8 +113,10 @@ export default function FullWidthGrid() {
     useEffect(()=>{    
         PedirPermissaoPraCopiar(window)
     },[])
-    
-    const classes = useStyles();
+    const props = { currentThumb: thumbvideo?
+        'url('+thumbvideo+')' :'url("/icons/logo.png")',  };
+
+    const classes = useStyles(props);
   return (    <ThemeProvider theme={theme}>
 
     <div className={classes.root}>
@@ -117,8 +126,10 @@ export default function FullWidthGrid() {
         <Topbar/>
        </Grid>
        <Grid item xs={12} className={classes.intro}>
+       <div className={classes.parallax}></div>
                 {intropt}    
                 {optURL}    
+                
        </Grid>
 
       <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>
@@ -129,7 +140,7 @@ export default function FullWidthGrid() {
 
       <Grid item xs={4} sm={2} md={8}  className={classes.thumbdiv}>
         <img className={classes.thumb}
-            src={urlvideo.completa!== ''?
+            src={thumbvideo?
                         thumbvideo :'/icons/logo.png'}
             alt="nn"        
             ></img>
