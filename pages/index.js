@@ -121,7 +121,7 @@ export default function FullWidthGrid() {
                 {optURL}    
        </Grid>
 
-      <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={9}>
+      <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>
        
         <Myapp urvideo={urlvideo.completa}/>
       </Grid>
