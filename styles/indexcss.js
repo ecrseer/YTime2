@@ -1,3 +1,5 @@
+
+
 const stylex = 
 (theme,props) => (
 {
@@ -12,6 +14,7 @@ const stylex =
     
   },
   intro:{
+      color:'#2A2A36',
       margin:theme.spacing(1),
       placeItems:'center',
       textAlign:"center",
@@ -21,16 +24,17 @@ const stylex =
     textAlign:"center",
     justifyContent:"center",      
     maxWidth:'90%',
-    borderRadius: '0px 0px 50px 50px',    
+    borderRadius: '1px 0px 50px 50px',    
         
   },
   thumbdiv:{
       placeItems:'center'
   },
   txtpt:{
-      margin:theme.spacing(2),
-      placeItems:'center',
-      textAlign:"center",
+    color:'#2A2A36',
+    margin:theme.spacing(2),
+    placeItems:'center',
+    textAlign:"center",
     justifyContent:"center",   
   },
   fter:{
@@ -43,12 +47,16 @@ const stylex =
   parallax:{
     width:'100%',
     height: '200px',
-    backgroundImage: props=>props.currentThumb,
-    backgroundPosition:'-1% 280%',
+    backgroundImage: props=>props.currentThumb,    
     backgroundAttachment:'fixed',
     backgroundSize:'cover',
     borderRadius: '0px 0px 50px 50px',    
+    backgroundPosition:'-1% -150%',
+    [theme.breakpoints.down('sm')]: {
+        backgroundPosition:'-1% 250%',
 
+      },
+    
   }
 })
 module.exports= { stylex}

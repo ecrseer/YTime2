@@ -8,8 +8,9 @@ import Topbar from '../components/layout/Topbar'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {txtpt,txt, intropt} from '../assets/strngs'
-import { Typography } from "@material-ui/core";
+import { Typography} from "@material-ui/core";
 import { stylex } from "../styles/indexcss";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 
 const useStyles = makeStyles(stylex);
@@ -50,8 +51,8 @@ export default function FullWidthGrid() {
     const [urlvideo, setUrlvideo] = useState({completa:'',idw:''});
     const [optURL,setOptURL] = useState(<></>)
     const [thumbvideo,setThumbvideo] = useState(false);
-
-
+    const [tst,stst] = useState(<Myapp urvideo={urlvideo.completa}/>)
+    const celular = useMediaQuery('(min-width:600px)')
     
   function _idThumb(_urlvideo){
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -129,7 +130,7 @@ export default function FullWidthGrid() {
        <div className={classes.parallax}></div>
                 {intropt}    
                 {optURL}    
-                
+                <h6>tem?{celular}a</h6>
        </Grid>
 
       <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>
