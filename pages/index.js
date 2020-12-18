@@ -151,11 +151,11 @@ export default function FullWidthGrid() {
 
         <Grid item xs={2} sm={6} md={8} lg={12} 
       className={classes.txtpt}>      
-        <BackBtn originalVideo={'https://www.youtube.com/watch?v=waAlgFq9Xq8s'}
+        <BackBtn originalVideo={urlvideo?urlvideo.completa:'www.youtube.com'}
             timedVideo={'https://www.youtube.com/watch?v=waAlgFq9Xq8s'}
         />
         </Grid>
-        
+
         <Grid item xs={6} sm={6} md={8} lg={12}
         className={classes.txtpt}>
         {txt}
