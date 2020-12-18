@@ -47,26 +47,36 @@ export default function FullWidthGrid() {
     const [thumbvideo,setThumbvideo] = useState(false);
     const [tst,stst] = useState(<Myapp urvideo={urlvideo.completa}/>)
     
+    //deprecated
+  function _idThumb(_urlvideoPar){
+    //var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var regExpNova = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/
+    let urlvidx = ""+_urlvideoPar+"";
     
-  function _idThumb(_urlvideo){
-    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-    let urlvid = ""+_urlvideo;
+    var matc = urlvidx.match(regExpNova);
     
-    var match = urlvid.match(regExp);
-    return (match&&match[7].length==11)? match[7] : false;
+    //return (match&&match[7].length==11)? match[7] : false;
+    return (matc&&matc[1].length==11)? matc[1] : false;
+  }
+  
+  function getIdThumb(urlc){
+    var regExpNova = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/
+    let urlvidx = ""+urlc+"";    
+    var matc = urlvidx.match(regExpNova);
+    return matc[1].length>7?matc[1]:'';
   }
   function carregarThumb(url){
-      let idT = _idThumb(url);
-      if (idT){
-          
+      let idT = getIdThumb(url);
+      console.log('idT'+idT);
+      if (idT){          
           let thmb = 'https://img.youtube.com/vi/'+idT+'/sddefault.jpg';
-          setThumbvideo(thmb);
-          
+          setThumbvideo(thmb);          
         return idT;
     }
     else
     return '';
   }
+
 
     function copyBoard (result){  
         if((result.state=='granted')||
@@ -78,12 +88,12 @@ export default function FullWidthGrid() {
                     completa: cip,
                     idw: urlvideo.idw
                 };
-                setUrlvideo(myobj);       
-                
-                carregarThumb(cip);
+                setUrlvideo(myobj);  
+                carregarThumb(cip);                
             })
-             .then(()=>{
+             .catch(()=>{
               //adiciona tempo
+              
                   });
                 }
       }
@@ -108,13 +118,13 @@ export default function FullWidthGrid() {
     }
 
     useEffect(()=>{    
-        setTimeout(
-        ()=>
+        setTimeout(()=>
         PedirPermissaoPraCopiar(window)
-        ,2000)
+        ,1000)
+        
     },[])
     const props = { currentThumb: thumbvideo?
-        'url('+thumbvideo+')' :'url("/icons/logo.png")',  };
+        'url('+""+thumbvideo+""+')' :'url("/icons/logo.png")',  };
 
     const classes = useStyles(props);
   return (    <ThemeProvider theme={theme}>
@@ -133,6 +143,7 @@ export default function FullWidthGrid() {
       <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>
        
         <Myapp urvideo={urlvideo.completa}/>
+        
       </Grid>
 
 
@@ -151,9 +162,10 @@ export default function FullWidthGrid() {
 
         <Grid item xs={2} sm={6} md={8} lg={12} 
       className={classes.txtpt}>      
-        <BackBtn originalVideo={urlvideo?urlvideo.completa:'www.youtube.com'}
+        <BackBtn originalVideo={urlvideo.completa?urlvideo.completa:'www.youtube.com'}
             timedVideo={'https://www.youtube.com/watch?v=waAlgFq9Xq8s'}
         />
+
         </Grid>
 
         <Grid item xs={6} sm={6} md={8} lg={12}
@@ -163,7 +175,7 @@ export default function FullWidthGrid() {
         
 
         <Grid item xs={12} className={classes.fter}>
-            <p className={classes.sign}>made with ❤️ by gjm</p>
+            <p className={classes.sign}>made with 👍😞 by gjm</p>
        </Grid>
      </Grid>
   </div>

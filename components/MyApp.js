@@ -15,7 +15,7 @@ const normalFt = (<a
     Made with ❤️ by  gjm
   </a>);
 
-export default function Myapp({urvideo}){ 
+export default function Myapp({urvideo,setIndexURL}){ 
     const [waitd,setWaitd] = useState(true);
     const [urlvideo, setUrlvideo] = useState(''+urvideo);    
     const [tempo,setTempo] = useState({minuto:0,segundo:0});
@@ -57,7 +57,8 @@ export default function Myapp({urvideo}){
     useEffect(()=>{
         setWaitd(false);
         const hvideo = ""+urvideo;
-        setUrlvideo(''+hvideo)        
+        setUrlvideo(''+hvideo)   
+        
         //PedirPermissaoPraCopiar(window);
     },[urlvideo,tempo])
     return(

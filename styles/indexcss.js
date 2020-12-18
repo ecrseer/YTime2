@@ -48,10 +48,13 @@ const stylex =
     backgroundAttachment:'fixed',
     backgroundSize:'cover',
     borderRadius: '0px 0px 50px 50px',    
-    backgroundPosition:'-1% -150%',
+    backgroundPosition:'-1% -210%',
     [theme.breakpoints.down('sm')]: {
-        backgroundPosition:'-1% 250%',
+        
+        background:'url("https://img.youtube.com/vi/CWlbjXwUMJI/sddefault.jpg") 40% 50% no-repeat',
+        
 
+        
       },
     
   }
