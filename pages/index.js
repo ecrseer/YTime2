@@ -10,17 +10,10 @@ import Grid from '@material-ui/core/Grid';
 import {txtpt,txt, intropt} from '../assets/strngs'
 import { Typography} from "@material-ui/core";
 import { stylex } from "../styles/indexcss";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 
 const useStyles = makeStyles(stylex);
-const useStyles2 = makeStyles((theme)=>(
-    {
-        root:{
-            
-        }
-    }
-));
+
 const theme = createMuiTheme({
     palette: {
       secondary: {
@@ -52,19 +45,19 @@ export default function FullWidthGrid() {
     const [optURL,setOptURL] = useState(<></>)
     const [thumbvideo,setThumbvideo] = useState(false);
     const [tst,stst] = useState(<Myapp urvideo={urlvideo.completa}/>)
-    const celular = useMediaQuery('(min-width:600px)')
+    
     
   function _idThumb(_urlvideo){
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     let urlvid = ""+_urlvideo;
-    console.log('urlvid:'+urlvid)
+    
     var match = urlvid.match(regExp);
     return (match&&match[7].length==11)? match[7] : false;
   }
   function carregarThumb(url){
       let idT = _idThumb(url);
       if (idT){
-          console.log('idT eh'+idT)
+          
           let thmb = 'https://img.youtube.com/vi/'+idT+'/sddefault.jpg';
           setThumbvideo(thmb);
           
@@ -85,7 +78,7 @@ export default function FullWidthGrid() {
                     idw: urlvideo.idw
                 };
                 setUrlvideo(myobj);       
-                console.log('consegui copiar'+cip)
+                
                 carregarThumb(cip);
             })
              .then(()=>{
@@ -102,17 +95,20 @@ export default function FullWidthGrid() {
         allowWithoutGesture: false}).then(
           (result)=>{
             copyBoard(result);
-            console.log('acabei de copiar')
+            
                 }
         )
         .catch(function (e){
-            console.log('nao consegui copiar:'+e);
+            
            // setFbckURL(flbckURL);
         })
     }
 
     useEffect(()=>{    
+        setTimeout(
+        ()=>
         PedirPermissaoPraCopiar(window)
+        ,2000)
     },[])
     const props = { currentThumb: thumbvideo?
         'url('+thumbvideo+')' :'url("/icons/logo.png")',  };
@@ -130,7 +126,7 @@ export default function FullWidthGrid() {
        <div className={classes.parallax}></div>
                 {intropt}    
                 {optURL}    
-                <h6>tem?{celular}a</h6>
+                
        </Grid>
 
       <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>
