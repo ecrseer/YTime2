@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import {txtpt,txt, intropt} from '../assets/strngs'
 import { Typography} from "@material-ui/core";
 import { stylex } from "../styles/indexcss";
-import BackBtn from "../components/layout/backButton";
+import BackBtn from "../components/layout/BackButton";
 
 
 const useStyles = makeStyles(stylex);
