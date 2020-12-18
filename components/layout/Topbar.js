@@ -10,13 +10,7 @@ import { stylex } from './Topbarcss';
 import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles(stylex);
-const useStyles2 = makeStyles((theme)=>(
-    {
-        root:{
-            
-        }
-    }
-));
+
 export default function ButtonAppBar() {
   const classes = useStyles();
 
