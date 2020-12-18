@@ -27,13 +27,14 @@ export default class extends Document {
           <link rel='manifest' href='/manifest.json' />
           <link rel='shortcut icon' href='/icons/favicon.ico' />
           <style>{
-            `
-            
+            `           
   }
             html, body, #__next {
+              background-color:#D6D5C9;
               height: 100%;
             }
             #__next {
+                background-color:#D6D5C9;
               margin: 0 auto;
             }
             h1 {

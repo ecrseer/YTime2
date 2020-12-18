@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import {txtpt,txt, intropt} from '../assets/strngs'
 import { Typography} from "@material-ui/core";
 import { stylex } from "../styles/indexcss";
+import BackBtn from "../components/layout/backButton";
 
 
 const useStyles = makeStyles(stylex);
@@ -87,6 +88,8 @@ export default function FullWidthGrid() {
                 }
       }
       function PedirPermissaoPraCopiar(_window){
+        document.body.style.backgroundColor = "#D6D5C9";
+
         _window.addEventListener("error", function (e) {
         alert("Error occurred: " + e.error.message);
         return false;
@@ -117,16 +120,14 @@ export default function FullWidthGrid() {
   return (    <ThemeProvider theme={theme}>
 
     <div className={classes.root}>
-      <Grid container spacing={0}>
-      
+      <Grid container spacing={0}>      
       <Grid item xs={12}>
         <Topbar/>
        </Grid>
        <Grid item xs={12} className={classes.intro}>
        <div className={classes.parallax}></div>
                 {intropt}    
-                {optURL}    
-                
+                {optURL}                  
        </Grid>
 
       <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>
@@ -143,10 +144,18 @@ export default function FullWidthGrid() {
             ></img>
         </Grid>
         
-      <Grid item xs={6} sm={6} md={8} lg={12} 
-      className={classes.txtpt}>      
-      {txtpt}      
+      <Grid item xs={7} sm={6} md={8} lg={12} 
+      >      
+      <p>{txtpt}</p>
         </Grid>
+
+        <Grid item xs={2} sm={6} md={8} lg={12} 
+      className={classes.txtpt}>      
+        <BackBtn originalVideo={'https://www.youtube.com/watch?v=waAlgFq9Xq8s'}
+            timedVideo={'https://www.youtube.com/watch?v=waAlgFq9Xq8s'}
+        />
+        </Grid>
+        
         <Grid item xs={6} sm={6} md={8} lg={12}
         className={classes.txtpt}>
         {txt}

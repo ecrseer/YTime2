@@ -32,10 +32,7 @@ const stylex =
   },
   txtpt:{
     color:'#2A2A36',
-    margin:theme.spacing(2),
-    placeItems:'center',
-    textAlign:"center",
-    justifyContent:"center",   
+    margin:theme.spacing(1),
   },
   fter:{
       gridTemplateRows:1
