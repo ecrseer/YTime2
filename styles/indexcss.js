@@ -51,7 +51,7 @@ const stylex =
     backgroundPosition:'-1% -210%',
     [theme.breakpoints.down('sm')]: {
         
-        background:'url("https://img.youtube.com/vi/CWlbjXwUMJI/sddefault.jpg") 40% 50% no-repeat',
+        background:'url("https://img.youtube.com/vi/sddefault.jpg") 40% 50% no-repeat',
         
 
         
