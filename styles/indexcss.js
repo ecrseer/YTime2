@@ -44,7 +44,7 @@ const stylex =
   },
   parallax:{
     width:'100%',
-    height: '200px',
+    height: '142px',
     backgroundImage: props=>props.currentThumb,    
     backgroundAttachment:'fixed',
     backgroundSize:'cover',
@@ -53,6 +53,7 @@ const stylex =
     [theme.breakpoints.down('sm')]: {
         
         background:'url("https://img.youtube.com/vi/sddefault.jpg") 40% 50% no-repeat',
+        height:'60%',
         
 
         

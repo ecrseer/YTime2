@@ -136,11 +136,13 @@ export default function FullWidthGrid() {
         <Topbar/>
        </Grid>
        <Grid item xs={12} className={classes.intro}>
-       <div className={classes.parallax}></div>
-                {intropt}    
-                {optURL}                  
+       <div className={classes.parallax}> &nbsp;</div>
+       &nbsp;
        </Grid>
-
+       <Grid item xs={12} className={classes.intro}>
+       {intropt}    
+                {optURL}   
+        </Grid>
       <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>       
         <Myapp urvideo={urlvideo.completa}/>        
       </Grid>
