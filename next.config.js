@@ -10,4 +10,7 @@ module.exports = withPWA({
     // Other configurations:
     // ...
   },
+  env:{
+      ADS_JSON:process.env.ADS_JSON,
+  }
 })

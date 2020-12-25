@@ -4,4 +4,5 @@ README copy.md
 lighthouse.pdf
 public/*.map
 public/workbox*
-assets/ads.js
+
+.env.local

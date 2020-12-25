@@ -1,6 +1,13 @@
 import {repelent} from '../../assets/ads';
-const Anuncios = ()=>(<iframe style={{width:'120px',height:'100%'}} scrolling="no" frameBorder="0" 
+const Anuncios = ({esconde})=>{
+
+    return(
+    <div>
+    <iframe style={{width:'120px',height:'242px'}} scrolling="no" frameBorder="0"
  src={repelent}>
-</iframe>)
+</iframe>
+<p>{esconde}</p>
+
+</div>)}
 
 export default Anuncios;
