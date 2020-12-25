@@ -11,6 +11,7 @@ import {txtpt,txt, intropt} from '../assets/strngs'
 import { Typography} from "@material-ui/core";
 import { stylex } from "../styles/indexcss";
 import BackBtn from "../components/layout/BackButton";
+import Anuncios from "../components/adsens/Anuncios";
 
 
 const useStyles = makeStyles(stylex);
@@ -22,7 +23,7 @@ const theme = createMuiTheme({
       },
       primary:{
           main: '#b53369',
-          contrastText:'#D6D5C9'
+          contrastText:'#D6D5C9',
       },
       multilineColor:{
         color:'#D6D5C9'
@@ -154,8 +155,10 @@ export default function FullWidthGrid() {
             alt="nn"        
             ></img>
         </Grid>
-        
-      <Grid item xs={7} sm={6} md={8} lg={12} 
+        <Grid item xs={11} sm={11} md={11} lg={12}>
+                    <Anuncios/><br/>
+        </Grid>
+      <Grid item xs={7} sm={6} md={8} lg={12} className={classes.txtpt}
       >      
       <p>{txtpt}</p>
         </Grid>
@@ -171,11 +174,13 @@ export default function FullWidthGrid() {
         <Grid item xs={6} sm={6} md={8} lg={12}
         className={classes.txtpt}>
         {txt}
+        
         </Grid>
         
 
         <Grid item xs={12} className={classes.fter}>
             <p className={classes.sign}>made with 👍😞 by gjm</p>
+            
        </Grid>
      </Grid>
   </div>

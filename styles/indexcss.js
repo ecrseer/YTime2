@@ -33,6 +33,7 @@ const stylex =
   txtpt:{
     color:'#2A2A36',
     margin:theme.spacing(1),
+    fontSize:'1.1em',
   },
   fter:{
       gridTemplateRows:1
