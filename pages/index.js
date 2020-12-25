@@ -152,7 +152,7 @@ export default function FullWidthGrid() {
             ></img>
         </Grid>
         <Grid item xs={11} sm={11} md={4} lg={4}>                    
-                    <Anuncios esconde={"yes"}/><Anuncios/><Anuncios/><Anuncios/><Anuncios/>
+                    <Anuncios/>
         </Grid>
 
 
