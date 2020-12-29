@@ -4,5 +4,5 @@ README copy.md
 lighthouse.pdf
 public/*.map
 public/workbox*
-
+styles/none.html
 .env.local
