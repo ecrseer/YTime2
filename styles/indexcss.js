@@ -5,7 +5,7 @@ const stylex =
 {
   root: {
     flexGrow: 1,
-    backgroundColor:'#D6D5C9'
+    backgroundColor:'#deddd3',
   },
   paper: {
     padding: theme.spacing(2),

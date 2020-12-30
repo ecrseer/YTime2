@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 const APP_NAME = 'YTimeShared2'
-const APP_DESCRIPTION = 'Share your youtube links right on schedule'
+const APP_DESCRIPTION = 'Share your youtube links on a specific point in time'
 
 export default class extends Document {
   static async getInitialProps(ctx) {
@@ -31,11 +31,11 @@ export default class extends Document {
             `           
   }
             html, body, #__next {
-              background-color:#D6D5C9;
+              background-color:#fff;
               height: 100%;
             }
             #__next {
-                background-color:#D6D5C9;
+                background-color:#fff;
               margin: 0 auto;
             }
             h1 {

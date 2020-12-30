@@ -99,7 +99,7 @@ export default function FullWidthGrid() {
                 }
       }
       function PedirPermissaoPraCopiar(_window){
-        document.body.style.backgroundColor = "#D6D5C9";
+        document.body.style.backgroundColor = "#deddd3";
 
         _window.addEventListener("error", function (e) {
         alert("Error occurred: " + e.error.message);

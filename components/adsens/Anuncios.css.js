@@ -5,12 +5,12 @@ const stylex =
             
         },
         frame2: {
-            width: '60px',
-            height: '205px', 
+            width: '21%',
+            height: '185px', 
             border:'none',           
             overflow:'hidden',
-            borderRadius:'10px 10px 30px 30px',
-            marginRight:'2px'
+            borderRadius:'5px 5px 30px 30px',
+            marginRight:'3px'
             
             
             
