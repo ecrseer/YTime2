@@ -15,7 +15,7 @@ const normalFt = (<a
     Made with ❤️ by  gjm
   </a>);
 
-export default function Myapp({urvideo,setIndexURL}){ 
+export default function Myapp({urvideo,setaUrlModifi}){ 
     const [waitd,setWaitd] = useState(true);
     const [urlvideo, setUrlvideo] = useState(''+urvideo);    
     const [tempo,setTempo] = useState({minuto:0,segundo:0});
@@ -30,17 +30,16 @@ export default function Myapp({urvideo,setIndexURL}){
       function adicionaTempo(){
         let tmp= parseInt(tempo.minuto)+parseInt(tempo.segundo);
         let url="";
-        if(urlvideo.search("youtube")!==-1){//se encontrou youtube 
+        if(urlvideo.search("youtube")!==-1)//se encontrou youtube 
           url=urlvideo+'&feature=youtu.be&t='+tmp;
-          setUrlModif(url);
-          }
+          
+          
           else 
-          if(urlvideo.search("youtu.be")!==-1){    
-            url=urlvideo+'?t='+tmp;
-            setUrlModif(url);           
-          }
-            else
-              setFootinho(<h2>Digite uma url do youtube</h2>)
+          if(urlvideo.search("youtu.be")!==-1)
+            url=urlvideo+'?t='+tmp;                     
+          
+          setUrlModif(url); 
+          setaUrlModifi(url);
     
       }
 //remove later
