@@ -2,12 +2,10 @@
 
 Web app que compartilha links do youtube no tempo certo
 
-## Instalacao
+## Para testar
 
 ``` bash
-cd examples/minimal
-yarn install
-yarn build
-yarn start
+npm i
+npm run dev
 ```
 
