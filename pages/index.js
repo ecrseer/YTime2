@@ -44,10 +44,14 @@ const theme = createMuiTheme({
 
 export default function FullWidthGrid() {
     const [urlvideo, setUrlvideo] = useState({completa:'',idw:''});
-    const [optURL,setOptURL] = useState(<></>)
+    const [optURL,setOptURL] = useState(<></>);
     const [thumbvideo,setThumbvideo] = useState(false);
-    const [tst,stst] = useState(<Myapp urvideo={urlvideo.completa}/>)
+    const [tst,stst] = useState(<Myapp urvideo={urlvideo.completa}/>);
+
     
+    const [noCopyURL,setNoCopyURL] = useState(false);
+    const [urlModificada,setUrlModificada] = useState('youtube.com');
+
     //deprecated
   function _idThumb(_urlvideoPar){
     //var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -62,7 +66,8 @@ export default function FullWidthGrid() {
   
   function getIdThumb(urlc){
     var regExpNova = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/
-    let urlvidx = ""+urlc+"";    
+    let urlvidx = ""+urlc+"";  
+    console.log('Urlpassada: '+urlc)  ;
     var matc = urlvidx.match(regExpNova);
     return matc[1].length>7?matc[1]:'';
   }
@@ -84,18 +89,25 @@ export default function FullWidthGrid() {
         result.state=='prompt'){           
           navigator.
           clipboard.readText().then((cip) => 
-            {let
+            {
+                  
+                let
                 myobj = {
                     completa: cip,
                     idw: urlvideo.idw
                 };
                 setUrlvideo(myobj);  
-                carregarThumb(cip);                
+                carregarThumb(cip);   
+                            
             })
              .catch(()=>{
-              //adiciona tempo
-              
+
                   });
+                }else{
+            //se n for possivel copiar url mostrar campo para digitar 
+            
+            setNoCopyURL(true);
+             
                 }
       }
       function PedirPermissaoPraCopiar(_window){
@@ -112,9 +124,8 @@ export default function FullWidthGrid() {
             
                 }
         )
-        .catch(function (e){
+        .catch(function (e){  
             
-           // setFbckURL(flbckURL);
         })
     }
 
@@ -127,13 +138,27 @@ export default function FullWidthGrid() {
     const props = { currentThumb: thumbvideo?
         'url('+""+thumbvideo+""+')' :'url("/icons/logo.png")',  };
 
+    const setStateNoCopyURL = (value) =>{
+        setUrlvideo(
+            {
+                completa: value,
+                idw: urlvideo.idw,
+                
+                
+            }     );
+            setTimeout(()=>carregarThumb(value),1000); 
+    }
+    const setStateUrlModifi = (urlmod)=>{
+        setUrlModificada(urlmod);
+    }
+    
     const classes = useStyles(props);
   return (    <ThemeProvider theme={theme}>
 
     <div className={classes.root}>
       <Grid container spacing={0}>      
       <Grid item xs={12}>
-        <Topbar/>
+        <Topbar NoCopy={noCopyURL} setarNoCopyURL={setStateNoCopyURL}/>
        </Grid>
        <Grid item xs={12} className={classes.intro}>
        <div className={classes.parallax}> &nbsp;</div>
@@ -144,7 +169,9 @@ export default function FullWidthGrid() {
                 {optURL}   
         </Grid>
       <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>       
-        <Myapp urvideo={urlvideo.completa}/>        
+        <Myapp urvideo={urlvideo.completa}
+            setaUrlModifi={setStateUrlModifi}
+        />        
       </Grid>
       <Grid item xs={4} sm={2} md={4}  lg={4} className={classes.thumbdiv}>
         <img className={classes.thumb}
@@ -166,7 +193,7 @@ export default function FullWidthGrid() {
         <Grid item xs={2} sm={6} md={8} lg={12} 
       className={classes.txtpt}>      
         <BackBtn originalVideo={urlvideo.completa?urlvideo.completa:'www.youtube.com'}
-            timedVideo={'https://www.youtube.com/watch?v=waAlgFq9Xq8s'}
+            timedVideo={urlModificada}
         />
 
         </Grid>
