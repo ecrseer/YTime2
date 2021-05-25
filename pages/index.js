@@ -48,7 +48,7 @@ export default function FullWidthGrid() {
     const [OptURL,setOptURL] = useState(<></>);
     const [thumbvideo,setThumbvideo] = useState(false);
     const [tst,stst] = useState(<Myapp urvideo={urlvideo.completa}/>);
-    
+    const [timeoutID,setTimeoutID] = useState(0);
     const [noCopyURL,setNoCopyURL] = useState(false);
     const [urlModificada,setUrlModificada] = useState('youtube.com');
 
@@ -67,7 +67,7 @@ export default function FullWidthGrid() {
   function getIdThumb(urlc){
     var regExpNova = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/
     let urlvidx = ""+urlc+"";  
-    console.log('Urlpassada: '+urlc)  ;
+    //console.log('Urlpassada: '+urlc)  ;
     var matc = urlvidx.match(regExpNova);
     return matc[1].length>7?matc[1]:'';
   }
@@ -84,17 +84,21 @@ export default function FullWidthGrid() {
 
 
     function copyBoard (result){  
-        if((result.state=='granted')||
-        result.state=='prompt'){           
+        
+        if( result.state === 'granted' ||
+        (result.state=='prompt')) {           
           navigator.
           clipboard.readText().then((cip) => 
             {
-                  
+                setNoCopyURL(false);
+                
                 let
                 myobj = {
                     completa: cip,
                     idw: urlvideo.idw
                 };
+                
+                
                 setUrlvideo(myobj);  
                 carregarThumb(cip);   
                             
@@ -106,6 +110,7 @@ export default function FullWidthGrid() {
             //se n for possivel copiar url mostrar campo para digitar 
             
             setNoCopyURL(true);
+            //setOptURL(<>Link: <input type="text"></input></>)
              
                 }
       }
@@ -119,6 +124,7 @@ export default function FullWidthGrid() {
       navigator.permissions.query({name:'clipboard-read',
         allowWithoutGesture: false}).then(
           (result)=>{
+            
             copyBoard(result);
             
                 }
@@ -143,7 +149,8 @@ export default function FullWidthGrid() {
                 
                 
             }     );
-            setTimeout(()=>carregarThumb(value),1000); 
+            
+                 
     }
     const setStateUrlModifi = (urlmod)=>{
         setUrlModificada(urlmod);
@@ -162,12 +169,13 @@ export default function FullWidthGrid() {
        &nbsp;
        </Grid>
        <Grid item xs={12} className={classes.intro}>
-       {intropt}    
+       <Typography className={classes.typography}>{intropt}</Typography>
                 {OptURL}   
         </Grid>
       <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>       
         <Myapp urvideo={urlvideo.completa}
             setaUrlModifi={setStateUrlModifi}
+            carregaTmbnail={carregarThumb}
         />        
       </Grid>
       <Grid item xs={4} sm={2} md={4}  lg={4} className={classes.thumbdiv}>
@@ -197,7 +205,7 @@ export default function FullWidthGrid() {
 
         <Grid item xs={6} sm={6} md={8} lg={12}
         className={classes.txtpt}>
-        {txt}
+        <Typography className={classes.typography}>{txt}</Typography>
         
         </Grid>
         

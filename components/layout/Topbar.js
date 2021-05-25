@@ -21,12 +21,12 @@ export default function ButtonAppBar({NoCopy,setarNoCopyURL}) {
        
         {!NoCopy?
             <Typography variant="h6" className={classes.titl}>
-            Time Shared for Youtube
-          </Typography>  
+              Time Shared for Youtube
+            </Typography>  
           :
-          <TextField
-                      id="standard-basic" name="min"                
-                      label="URL" onChange={(ev)=>{
+          <TextField  id="standard-basic" name="min"                
+                      label="URL"  
+                      onBlur={(ev)=>{
                         setarNoCopyURL(
                         ev.target.value)
                       }} fullWidth style={{margin:'1.5%'}} />
