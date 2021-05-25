@@ -19,10 +19,10 @@ const useStyles = makeStyles(stylex);
 const theme = createMuiTheme({
     palette: {
       secondary: {
-        main: '#E33E7F'
+        main: '#a5a555'
       },
       primary:{
-          main: '#b53369',
+          main: '#555555',
           contrastText:'#D6D5C9',
       },
       multilineColor:{
@@ -31,6 +31,7 @@ const theme = createMuiTheme({
     typography:{
         fontSize:10,
         fontFamily: [
+            
             'Nunito',
             'sans-serif',
             '"Apple Color Emoji"',
@@ -44,10 +45,9 @@ const theme = createMuiTheme({
 
 export default function FullWidthGrid() {
     const [urlvideo, setUrlvideo] = useState({completa:'',idw:''});
-    const [optURL,setOptURL] = useState(<></>);
+    const [OptURL,setOptURL] = useState(<></>);
     const [thumbvideo,setThumbvideo] = useState(false);
     const [tst,stst] = useState(<Myapp urvideo={urlvideo.completa}/>);
-
     
     const [noCopyURL,setNoCopyURL] = useState(false);
     const [urlModificada,setUrlModificada] = useState('youtube.com');
@@ -79,8 +79,7 @@ export default function FullWidthGrid() {
           setThumbvideo(thmb);          
         return idT;
     }
-    else
-    return '';
+    else  return '';
   }
 
 
@@ -111,7 +110,7 @@ export default function FullWidthGrid() {
                 }
       }
       function PedirPermissaoPraCopiar(_window){
-        document.body.style.backgroundColor = "#deddd3";
+        document.body.style.backgroundColor = "#252525";
 
         _window.addEventListener("error", function (e) {
         alert("Error occurred: " + e.error.message);
@@ -124,9 +123,7 @@ export default function FullWidthGrid() {
             
                 }
         )
-        .catch(function (e){  
-            
-        })
+        .catch(function (e){ console.log('copyboard resultfail')})
     }
 
     useEffect(()=>{    
@@ -166,7 +163,7 @@ export default function FullWidthGrid() {
        </Grid>
        <Grid item xs={12} className={classes.intro}>
        {intropt}    
-                {optURL}   
+                {OptURL}   
         </Grid>
       <Grid className={classes.paper} item xs={8} sm={10} md={4} lg={4}>       
         <Myapp urvideo={urlvideo.completa}
@@ -187,7 +184,7 @@ export default function FullWidthGrid() {
 
       <Grid item xs={7} sm={6} md={8} lg={12} className={classes.txtpt}
       >      
-      <p>{txtpt}</p>
+      <Typography className={classes.typography}>{txtpt}</Typography>
         </Grid>
 
         <Grid item xs={2} sm={6} md={8} lg={12} 

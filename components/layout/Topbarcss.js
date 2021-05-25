@@ -3,7 +3,7 @@ const stylex =
     root: {      
     },
     toolbar:{
-      backgroundColor:'#b53369',
+      backgroundColor:'#555555',
       textAlign:'center',
       justifyContent:'center',
       borderRadius: '0px 0px 50px 50px',    

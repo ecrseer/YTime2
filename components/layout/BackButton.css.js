@@ -18,10 +18,10 @@ const stylex =
     borderRadius: '20px',
     paddingLeft:'5px',
     paddingRight:'5px',
-    backgroundImage:'linear-gradient(#B9BAA3,#902923)',
+    backgroundImage:'linear-gradient(#B9BAA3,#2b2b2b)',
     transition:'padding-right 2s',
     "&:hover": {
-        backgroundImage:'linear-gradient(red,blue)',
+        backgroundImage:'linear-gradient(#eeeedd,#2b2b2b)',
         paddingRight:'32px',
     },
     "&:active":{

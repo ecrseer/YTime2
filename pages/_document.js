@@ -31,11 +31,12 @@ export default class extends Document {
             `           
   }
             html, body, #__next {
-              background-color:#fff;
+              background-color:#111;
               height: 100%;
             }
             #__next {
-                background-color:#fff;
+                background-color:#111;
+                color:white;
               margin: 0 auto;
             }
             h1 {
@@ -43,6 +44,8 @@ export default class extends Document {
             }
             `
           }</style>
+          <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+         <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"></link>
         </Head>
         <body>
           <Main />

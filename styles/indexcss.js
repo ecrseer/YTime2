@@ -5,7 +5,7 @@ const stylex =
 {
   root: {
     flexGrow: 1,
-    backgroundColor:'#deddd3',
+    backgroundColor:'#2b2b2b',
   },
   paper: {
     padding: theme.spacing(2),
@@ -31,7 +31,7 @@ const stylex =
       placeItems:'center'
   },
   txtpt:{
-    color:'#2A2A36',
+    color:'#EFEFEF',
     margin:theme.spacing(1),
     fontSize:'1.1em',
   },
