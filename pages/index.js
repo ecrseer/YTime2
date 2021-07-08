@@ -140,8 +140,7 @@ export default function FullWidthGrid() {
     }
 
     useEffect(() => {
-
-        console.log('low')
+        
         setTimeout(() =>
             PedirPermissaoPraCopiar(window)
             , 1000)
@@ -167,11 +166,6 @@ export default function FullWidthGrid() {
         setUrlModificada(urlmod);
 
     }
-function lerin(){
-    let ld=3;
-    console.log(`damini ${ld}`)
-}
-
 
     const classes = useStyles(props);
     return (<ThemeProvider theme={theme}>
@@ -186,7 +180,7 @@ function lerin(){
                     &nbsp;
                 </Grid>
                 <Grid item xs={12} className={classes.intro}>
-                    <button onClick={()=>lerin()}>beyblade</button>
+                    
                     <Typography className={classes.typography}>{intropt}</Typography>
                     {OptURL}
                 </Grid>
