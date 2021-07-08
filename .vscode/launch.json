@@ -12,6 +12,47 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/index.js"
+        },
+        {
+            "name": "firefoxbug",
+            "type": "firefox",
+            "request": "launch",
+            "url": "http://localhost:3000/",
+            "webRoot": "${workspaceFolder}",
+            "pathMappings": [
+                {
+                    "url": "webpack-internal:///node_modules/next/dist/client/index.js",
+                    "path": "${workspaceFolder}/pages/index.js"
+                }
+            ]
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "WORKINGdebuggerorchrom",
+            "url": "http://localhost:3000/",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "devtools-for-chrome",
+            "request": "launch",
+            "name": "Attach  DevTools",
+            "url": "http://localhost:3000/",
+            "chromePath": "/usr/bin/google-chrome-stable"
+        },
+        {
+            "name": "Attach Chrome ",
+            "url": "http://localhost:3000/",
+            "chromePath": "/usr/bin/google-chrome-stable",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "nodenext",
+            "protocol": "inspector",
+            "restart": true,
+            "port": 9229
         }
     ]
 }
