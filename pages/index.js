@@ -102,6 +102,7 @@ export default function FullWidthGrid() {
 
                 })
                 .catch(() => {
+                    setNoCopyURL(true);
 
                 });
         } else {
