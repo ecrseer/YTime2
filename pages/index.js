@@ -129,7 +129,6 @@ export default function FullWidthGrid() {
             (result) => {
 
                 copyBoard(result);
-
             }
         )
             .catch(function (e) { 
