@@ -14,7 +14,7 @@ const stylex =
     
   },
   intro:{
-      color:'#2A2A36',
+      color:'#fff',
       margin:theme.spacing(1),
       placeItems:'center',
       textAlign:"center",
